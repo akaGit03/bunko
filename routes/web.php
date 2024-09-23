@@ -8,7 +8,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/top",[BookController::class, "index"])->name("top");
+Route::get('/top',[BookController::class, 'index'])->name('top');
+Route::get('/search', [BookController::class, 'search'])->name('search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

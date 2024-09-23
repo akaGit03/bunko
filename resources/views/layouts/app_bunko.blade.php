@@ -14,6 +14,11 @@
     <header class="navbar navbar-dark bg-dark">
         <div class="container">
             <a href="/" class="navbar-brand">{{ config("app.name") }}</a>
+            <span class="nav-text" style="color: #e3f2fd;">ようこそ、{{ Auth::user()->name ?? 'ゲスト' }}さん</span>
+            <form onsubmit="return confirm('ログアウトしますか？')" action="{{ route('logout') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-light">ログアウト</button>
+            </form>
         </div>
     </header>
     <div class="container py-4">

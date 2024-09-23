@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Type;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -65,5 +67,45 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         //
+    }
+
+    /* 検索機能 */
+    public function search(Request $request)
+    {
+        $query = Book::query();
+
+        if ($request->filled('user_id')) {
+            $query->where('user_id', $request->user_id);
+        }
+
+        if ($request->filled('type_id')) {
+            $query->where('type_id', $request->type_id);
+        }
+
+        if ($request->filled('keyword')) {
+            $query->where(function($q) use ($request) {
+                $q->where('title', 'like', "%{$request->keyword}%")
+                  ->orWhere('author', 'like', "%{$request->keyword}%");
+            });
+        }
+
+        if ($request->filled('sort')) {
+            if ($request->sort == 'created_desc') {
+                $query->orderBy('created_at', 'desc');
+            } elseif ($request->sort == 'price_asc') {
+                $query->orderBy('price', 'asc');
+            } elseif ($request->sort == 'price_desc') {
+                $query->orderBy('price', 'desc');
+            }
+        } else {
+            $query->orderBy('created_at', 'asc');
+        }
+
+        // 統計情報を計算
+        $count = $query->count();
+        
+        $books = $query->paginate(20);
+
+        return view('top', compact('books', 'count'));
     }
 }
