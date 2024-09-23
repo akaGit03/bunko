@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use \App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/top",[BookController::class, "index"])->name("top");
 
 Route::get('/dashboard', function () {
     return view('dashboard');
