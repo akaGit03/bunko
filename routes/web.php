@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use \App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/books/index',[BookController::class, 'index'])->name('books.index');
+Route::get('/books/search', [BookController::class, 'search'])->name('books.search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
