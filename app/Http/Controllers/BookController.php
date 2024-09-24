@@ -18,7 +18,7 @@ class BookController extends Controller
         $data = [
             "books" => $books,
         ];
-        return view("top", $data);
+        return view("books.index", $data);
     }
 
     /**
@@ -74,19 +74,19 @@ class BookController extends Controller
     {
         $query = Book::query();
 
+        if ($request->filled('keyword')) {
+            $query->where(function($q) use ($request) {
+                $q->where('title', 'like', "%{$request->keyword}%")
+                ->orWhere('author', 'like', "%{$request->keyword}%");
+            });
+        }
+        
         if ($request->filled('user_id')) {
             $query->where('user_id', $request->user_id);
         }
 
         if ($request->filled('type_id')) {
             $query->where('type_id', $request->type_id);
-        }
-
-        if ($request->filled('keyword')) {
-            $query->where(function($q) use ($request) {
-                $q->where('title', 'like', "%{$request->keyword}%")
-                  ->orWhere('author', 'like', "%{$request->keyword}%");
-            });
         }
 
         if ($request->filled('sort')) {
@@ -106,6 +106,6 @@ class BookController extends Controller
         
         $books = $query->paginate(20);
 
-        return view('top', compact('books', 'count'));
+        return view('books.index', compact('books', 'count'));
     }
 }

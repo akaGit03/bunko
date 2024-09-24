@@ -2,7 +2,7 @@
 @section("content")
 <div class="row">
     <div class="col-md-4 col-lg-3  mb-4">
-        <form class="card mb-4" action="{{ route('search') }}" method="get">
+        <form class="card mb-4" action="{{ route('books.search') }}" method="get">
             <div class="card-header">本棚検索</div>
             <dl class="search-box card-body mb-0">
                 <dt>キーワード</dt>
@@ -36,7 +36,7 @@
     <div class="col-md-8 col-lg-9">
         <div class="alert alert-secondary d-flex justify-content-between align-items-center">
             <!-- デフォルトは全件検索結果 -->
-            <div>検索結果：{{ $count ?? $products->total() }}件</div>
+            <div>検索結果：{{ $count ?? $books->al() }}件</div>
         </div>
         <div class="table-responsive">            
             <table class="table table-striped">
