@@ -1,6 +1,6 @@
 @extends('layouts.app_bunko')
 @section('content')
-<form action="{{ route('books.update', $book) }}" method="post">
+<form onsubmit="return confirm('これで更新しますか？')" action="{{ route('books.update', $book) }}" method="post">
     @method('patch')
     @include('books.form')
     <button type="submit">更新</button>

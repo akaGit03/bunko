@@ -6,7 +6,15 @@
     <div class="book-owner">{{ $book->user->name }}</div>
     <div class="book-comment">{!! nl2br(e($book->comment)) !!}</div>
     <div class="book-control">
-        <a href="{{ route('books.edit', $book) }}">編集</a>
+        <form action="{{ route('books.edit', $book) }}" method="get">
+            @csrf
+            <button type="submit">編集</button>
+        </form>
+        <form onsubmit="return confirm('本当に削除しますか？')" action="{{ route('books.destroy', $book) }}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit">削除</button>
+        </form>
     </div>
 </book>
 @endsection
