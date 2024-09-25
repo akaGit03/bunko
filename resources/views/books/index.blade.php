@@ -36,7 +36,7 @@
     <div class="col-md-8 col-lg-9">
         <div class="alert alert-secondary d-flex justify-content-between align-items-center">
             <!-- デフォルトは全件検索結果 -->
-            <div>検索結果：{{ $count ?? $books->al() }}件</div>
+            <div>検索結果：{{ $count ?? $books->total() }}件</div>
         </div>
         <div class="table-responsive">            
             <table class="table table-striped">

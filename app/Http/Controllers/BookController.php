@@ -15,10 +15,8 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::paginate(20);
-        $data = [
-            "books" => $books,
-        ];
-        return view("books.index", $data);
+        $data = ['books' => $books];
+        return view('books.index', $data);
     }
 
     /**
@@ -26,7 +24,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $book = new Book();
+        $data = ['data' => $book];
+        return view('books.create', $data);
     }
 
     /**
@@ -34,7 +34,21 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'type_id' => 'required',
+            'comment' => 'max:255'
+        ]);
+
+        $book = new Book();
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->type_id = $request->type_id;
+        $book->comment = $request->comment;
+        $book->save();
+
+        return redirect(route('books.index'));
     }
 
     /**
