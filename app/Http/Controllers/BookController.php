@@ -15,10 +15,8 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::paginate(20);
-        $data = [
-            "books" => $books,
-        ];
-        return view("books.index", $data);
+        $data = ['books' => $books];
+        return view('books.index', $data);
     }
 
     /**
@@ -26,7 +24,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        $book = new Book();
+        $data = ['book' => $book];
+        return view('books.create', $data);
     }
 
     /**
@@ -34,7 +34,21 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'type_id' => 'required',
+            'comment' => 'max:255'
+        ]);
+
+        $book = new Book();
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->type_id = $request->type_id;
+        $book->comment = $request->comment;
+        $book->save();
+
+        return redirect(route('books.index'));
     }
 
     /**
@@ -42,7 +56,8 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        //
+        $data = ['book' => $book];
+        return view( 'books.show', $data);
     }
 
     /**
@@ -50,7 +65,8 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        $data = ['book' => $book];
+        return view( 'books.edit', $data);
     }
 
     /**
@@ -58,7 +74,20 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'author' => 'required|max:255',
+            'type_id' => 'required',
+            'comment' => 'max:255'
+        ]);
+
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->type_id = $request->type_id;
+        $book->comment = $request->comment;
+        $book->save();
+
+        return redirect(route('books.show', $book));
     }
 
     /**
@@ -66,7 +95,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        return redirect(route('books.index'));
     }
 
     /* 検索機能 */
