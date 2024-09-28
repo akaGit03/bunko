@@ -47,6 +47,7 @@ class User extends Authenticatable implements FilamentUser
         ];
     }
 
+    // adminアカウントの判定
     public function canAccessPanel(Panel $panel): bool
     {
         if ($panel->getId() === config('filament.id')) {
@@ -54,5 +55,11 @@ class User extends Authenticatable implements FilamentUser
         }
  
         return true;
+    }
+
+    // Bookとの一対多のリレーションメソッドを定義
+    public function books()
+    {
+        return $this->hasMany(Book::class);
     }
 }
