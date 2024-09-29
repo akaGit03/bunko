@@ -57,9 +57,21 @@ class User extends Authenticatable implements FilamentUser
         return true;
     }
 
-    // Bookとの一対多のリレーションメソッドを定義
+    // Bookとの一対多のリレーションメソッド
     public function books()
     {
         return $this->hasMany(Book::class);
+    }
+
+    // Lendingとの一対多のリレーションメソッド
+    public function lendings()
+    {
+        return $this->hasMany(Lending::class);
+    }
+
+    // ユーザーが現在借りている本（返却されていない本）のレコードの取得
+    public function currentBorrows()
+    {
+        return $this->hasMany(Lending::class)->whereNull('return_date');
     }
 }
