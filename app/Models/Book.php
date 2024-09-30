@@ -18,19 +18,21 @@ class Book extends Model
         "status",
     ]; 
 
-    // Typeとの多対一のリレーションメソッドを定義
+    /** リレーションメソッド */
+    
+    // Typeとの多対一のリレーション
     public function type()
     {
         return $this->belongsTo(Type::class);
     }
 
-    // Userとの多対一のリレーションメソッド
+    // Userとの多対一のリレーション
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Lendingとの一対多のリレーションメソッド
+    // Lendingとの一対多のリレーション
     public function lending()
     {
         return $this->hasMany(Lending::class);
@@ -42,9 +44,10 @@ class Book extends Model
         return $this->lending()->where('user_id', \Auth::id())->whereNull('return_date')->exists();
     }
 
-    // 貸出中のレコードの取得
+    /* 貸出中のレコードの取得
     public function currentLending()
     {
         return $this->hasOne(Lending::class)->whereNull('return_date');
     }
+    */
 }

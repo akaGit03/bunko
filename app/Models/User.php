@@ -47,7 +47,7 @@ class User extends Authenticatable implements FilamentUser
         ];
     }
 
-    // adminアカウントの判定
+    /**  adminアカウントの判定 */
     public function canAccessPanel(Panel $panel): bool
     {
         if ($panel->getId() === config('filament.id')) {
@@ -57,21 +57,24 @@ class User extends Authenticatable implements FilamentUser
         return true;
     }
 
-    // Bookとの一対多のリレーションメソッド
+    /** リレーションメソッド */
+
+    // Bookとの一対多のリレーション
     public function books()
     {
         return $this->hasMany(Book::class);
     }
 
-    // Lendingとの一対多のリレーションメソッド
+    // Lendingとの一対多のリレーション
     public function lendings()
     {
         return $this->hasMany(Lending::class);
     }
-
-    // ユーザーが現在借りている本（返却されていない本）のレコードの取得
+    
+    /* ユーザーが現在借りている本（返却されていない本）のレコードの取得
     public function currentBorrows()
     {
         return $this->hasMany(Lending::class)->whereNull('return_date');
     }
+    */
 }

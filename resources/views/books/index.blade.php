@@ -42,7 +42,11 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th><th>タイトル</th><th>著者</th><th>種類</th><th>持ち主</th>
+                        <th>ID</th>
+                        <th>タイトル</th>
+                        <th>著者</th>
+                        <th>種類</th>
+                        <th>持ち主</th>
                     </tr>
                 </thead>
                 <tbody>

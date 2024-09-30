@@ -17,13 +17,15 @@ class Lending extends Model
         'return_date'
     ];
     
-    // Bookとの多対一のリレーションメソッド
+    /** リレーションメソッド */
+
+    // Bookとの多対一のリレーション
     public function Book()
     {
         return $this->belongsTo(Book::class);
     }
 
-    // Userとの多対一のリレーションメソッド
+    // Userとの多対一のリレーション
     public function user()
     {
         return $this->belongsTo(User::class);

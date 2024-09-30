@@ -1,11 +1,11 @@
 @extends('layouts.app_bunko')
 @section('content')
+<a href="{{ route('books.index') }}">戻る</a>
 {{-- アラート表示 --}}
 @if (session('success'))
 <div class="alert alert-success">
     {{ session('success') }}
 </div>
-
 @endif
 <book class="book-detail">
     <h1 class="book-title">{{ $book->title }}</h1>
