@@ -45,10 +45,11 @@ class BookController extends Controller
         $book->title = $request->title;
         $book->author = $request->author;
         $book->type_id = $request->type_id;
+        $book->user_id = \Auth::id();
         $book->comment = $request->comment;
         $book->save();
 
-        return redirect(route('books.index'));
+        return redirect(route('dashboard'));
     }
 
     /**
@@ -65,6 +66,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
+        $this->authorize($book);
         $data = ['book' => $book];
         return view( 'books.edit', $data);
     }
@@ -74,6 +76,7 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
+        $this->authorize($book);
         $request->validate([
             'title' => 'required|max:255',
             'author' => 'required|max:255',
@@ -95,6 +98,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
+        $this->authorize($book);
         $book->delete();
         return redirect(route('books.index'));
     }

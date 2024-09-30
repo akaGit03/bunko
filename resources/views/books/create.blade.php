@@ -3,7 +3,7 @@
 @include('commons.errors')
 <form action="{{ route('books.store') }}" method="post">
     @include('books.form')
-    <button type="submit">投稿する</button>
-    <a href="{{ route('books.index') }}">キャンセル</a>
+    <button type="submit">登録する</button>
+    <a href="{{ route('dashboard') }}">キャンセル</a>
 </form>
 @endsection
