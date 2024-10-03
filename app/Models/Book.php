@@ -33,15 +33,21 @@ class Book extends Model
     }
 
     // Lendingとの一対多のリレーション
-    public function lending()
+    public function lendings()
     {
         return $this->hasMany(Lending::class);
+    }
+
+    // Commentとの一対多のリレーション
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     // 本が貸出中か否かの判定
     public function isLent()
     {
-        return $this->lending()->where('user_id', \Auth::id())->whereNull('return_date')->exists();
+        return $this->lendings()->where('user_id', \Auth::id())->whereNull('return_date')->exists();
     }
 
     /* 貸出中のレコードの取得

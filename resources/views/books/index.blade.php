@@ -1,6 +1,7 @@
 @extends("layouts.app_bunko")
 @section("content")
 <div class="row">
+    <!-- 検索窓 -->
     <div class="col-md-4 col-lg-3  mb-4">
         <form class="card mb-4" action="{{ route('books.search') }}" method="get">
             <div class="card-header">本棚検索</div>
@@ -33,6 +34,8 @@
             </div>
         </form>
     </div>
+
+    <!-- 検索結果 -->
     <div class="col-md-8 col-lg-9">
         <div class="alert alert-secondary d-flex justify-content-between align-items-center">
             <!-- デフォルトは全件検索結果 -->

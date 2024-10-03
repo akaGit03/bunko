@@ -70,6 +70,12 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(Lending::class);
     }
+
+    // Commentとの一対多のリレーション
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
     
     /* ユーザーが現在借りている本（返却されていない本）のレコードの取得
     public function currentBorrows()

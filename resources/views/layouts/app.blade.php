@@ -29,6 +29,13 @@
 
             <!-- Page Content -->
             <main>
+                <!-- アラート表示 -->
+                @if (session('success'))
+                <div class="">
+                    {{ session('success') }}
+                </div>
+                @endif
+
                 {{ $slot }}
             </main>
         </div>

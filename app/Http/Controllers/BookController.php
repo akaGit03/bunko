@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::paginate(20);
+        $books = Book::paginate(30);
         $data = ['books' => $books];
         return view('books.index', $data);
     }
@@ -49,7 +49,7 @@ class BookController extends Controller
         $book->comment = $request->comment;
         $book->save();
 
-        return redirect(route('dashboard'));
+        return redirect()->back()->with('success', '登録されました');
     }
 
     /**
@@ -100,7 +100,7 @@ class BookController extends Controller
     {
         $this->authorize($book);
         $book->delete();
-        return redirect(route('books.index'));
+        return redirect()->back()->with('success', '削除されました');
     }
 
     /* 検索機能 */
@@ -123,22 +123,10 @@ class BookController extends Controller
             $query->where('type_id', $request->type_id);
         }
 
-        if ($request->filled('sort')) {
-            if ($request->sort == 'created_desc') {
-                $query->orderBy('created_at', 'desc');
-            } elseif ($request->sort == 'price_asc') {
-                $query->orderBy('price', 'asc');
-            } elseif ($request->sort == 'price_desc') {
-                $query->orderBy('price', 'desc');
-            }
-        } else {
-            $query->orderBy('created_at', 'asc');
-        }
-
-        // 統計情報を計算
+        // 検索ヒット数
         $count = $query->count();
         
-        $books = $query->paginate(20);
+        $books = $query->paginate(30);
 
         return view('books.index', compact('books', 'count'));
     }

@@ -13,12 +13,27 @@
 <body>
     <header class="navbar navbar-dark bg-dark">
         <div class="container">
-            <a href="/" class="navbar-brand">{{ config("app.name") }}</a>
-            <span class="nav-text" style="color: #e3f2fd;">ようこそ、{{ Auth::user()->name ?? 'ゲスト' }}さん</span>
+            <a href="/books" class="navbar-brand">{{ config("app.name") }}</a>
+            <span class="nav-text" style="color: #e3f2fd;">ようこそ {{ Auth::user()->name ?? 'ゲスト' }}さん</span>
+            @auth
+            <form action="{{ route('dashboard') }}" method="get">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-light">ダッシュボード</button>
+            </form>
             <form onsubmit="return confirm('ログアウトしますか？')" action="{{ route('logout') }}" method="post">
                 @csrf
                 <button type="submit" class="btn btn-sm btn-light">ログアウト</button>
             </form>
+            @else
+            <form action="{{ route('login') }}" method="get">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-light">ログイン</button>
+            </form>
+            <form action="{{ route('register') }}" method="get">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-light">会員登録</button>
+            </form>
+            @endauth
         </div>
     </header>
     <div class="container py-4">

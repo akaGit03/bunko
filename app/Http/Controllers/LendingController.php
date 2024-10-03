@@ -12,7 +12,7 @@ class LendingController extends Controller
     {
         // 貸出中か確認
         if ($book->status) {
-            return response()->json(['message' => 'この本は現在貸出中です。返却されるまでお待ちください。'], 400);
+            return response()->json(['message' => 'この本は現在貸出中です。返却されるまでお待ちください'], 400);
         }
 
         /* 貸出処理 */ 
@@ -28,16 +28,16 @@ class LendingController extends Controller
         $book->status = true;
         $book->save();
 
-        return redirect()->back()->with('success', '本を借りました。');
+        return redirect()->back()->with('success', '本を借りました');
     }
 
     public function returnBook(Request $request, Book $book)
     {
         // 貸出中のレコードを取得
-        $lending = $book->lending()->whereNull('return_date')->first();
+        $lending = $book->lendings()->whereNull('return_date')->first();
 
         if (!$lending) {
-            return response()->json(['message' => 'この本は現在貸出されていません。'], 400);
+            return response()->json(['message' => 'この本は現在貸出されていません'], 400);
         }
 
         /* 返却処理 */
@@ -51,6 +51,6 @@ class LendingController extends Controller
         $book->status = false;
         $book->save();
 
-        return redirect()->back()->with('success', '本を返却しました。');
+        return redirect()->back()->with('success', '本を返却しました');
     }
 }
