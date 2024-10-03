@@ -40,7 +40,7 @@ class CommentController extends Controller
 
         $comment->save();
 
-        return redirect()->route('books.show', ['book' => $request->book_id])->with('success', 'コメントが追加されました。');
+        return redirect()->back()->with('success', 'コメントが追加されました');
 
     }
 
@@ -75,6 +75,6 @@ class CommentController extends Controller
     {
         $this->authorize($comment);
         $comment->delete();
-        return redirect()->route('books.show', ['book' => $comment->book_id])->with('success', 'コメントが削除されました。');
+        return redirect()->back()->with('success', 'コメントが削除されました');
     }
 }
