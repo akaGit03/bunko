@@ -14,9 +14,9 @@
                     <article class="book-item">
                         <div class="book-title"><a href="{{ route('books.show', $book) }}">{{ $book->title }}</a></div>
                         <div class="book-author">{{ $book->author }}</div>
-                        <div class="book-borrower">借りた人: {{ $book->lending->first()->user->name }}</div>
-                        <div class="book-checkout">借りた日: {{ $book->lending->first()->checkout_date }}</div>
-                        <div class="book-return">返却日: {{ $book->lending->first()->return_date }}</div>
+                        <div class="book-borrower">借りた人: {{ $book->lendings->first()->user->name }}</div>
+                        <div class="book-checkout">借りた日: {{ $book->lendings->first()->checkout_date }}</div>
+                        <div class="book-return">返却日: {{ $book->lendings->first()->return_date }}</div>
                     </article>
                     @empty
                     <div>現在貸出中の本はありません。</div>

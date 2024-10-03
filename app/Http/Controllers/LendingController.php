@@ -34,7 +34,7 @@ class LendingController extends Controller
     public function returnBook(Request $request, Book $book)
     {
         // 貸出中のレコードを取得
-        $lending = $book->lending()->whereNull('return_date')->first();
+        $lending = $book->lendings()->whereNull('return_date')->first();
 
         if (!$lending) {
             return response()->json(['message' => 'この本は現在貸出されていません。'], 400);
