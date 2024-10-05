@@ -16,7 +16,7 @@
             <a href="/books" class="navbar-brand">{{ config("app.name") }}</a>
             <span class="nav-text" style="color: #e3f2fd;">ようこそ {{ Auth::user()->name ?? 'ゲスト' }}さん</span>
             @auth
-            <form action="{{ route('dashboard') }}" method="get">
+            <form action="{{ route('dashboard') }}" method="GET">
                 @csrf
                 <button type="submit" class="btn btn-sm btn-light">ダッシュボード</button>
             </form>
@@ -25,11 +25,11 @@
                 <button type="submit" class="btn btn-sm btn-light">ログアウト</button>
             </form>
             @else
-            <form action="{{ route('login') }}" method="get">
+            <form action="{{ route('login') }}" method="GET">
                 @csrf
                 <button type="submit" class="btn btn-sm btn-light">ログイン</button>
             </form>
-            <form action="{{ route('register') }}" method="get">
+            <form action="{{ route('register') }}" method="GET">
                 @csrf
                 <button type="submit" class="btn btn-sm btn-light">会員登録</button>
             </form>
