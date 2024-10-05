@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::paginate(10);
+        $books = Book::paginate(20);
         $data = ['books' => $books];
         return view('books.index', $data);
     }
@@ -127,7 +127,7 @@ class BookController extends Controller
         $query->with(['type', 'user']);
 
         $count = $query->count(); // 検索ヒット数
-        $books = $query->paginate(10);
+        $books = $query->paginate(20);
 
         // レスポンスをJSONで返す
         if ($request->ajax()) {
