@@ -14,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::paginate(20);
+        $books = Book::paginate(30);
         $data = ['books' => $books];
         return view('books.index', $data);
     }
@@ -123,20 +123,10 @@ class BookController extends Controller
             $query->where('type_id', $request->type_id);
         }
 
-        // typeモデルとuserモデルのリレーションをロード
-        $query->with(['type', 'user']);
-
-        $count = $query->count(); // 検索ヒット数
-        $books = $query->paginate(20);
-
-        // レスポンスをJSONで返す
-        if ($request->ajax()) {
-            return response()->json([
-                'books' => $books,
-                'count' => $count,
-                'links' => (string) $books->links(),
-            ]);
-        }
+        // 検索ヒット数
+        $count = $query->count();
+        
+        $books = $query->paginate(30);
 
         return view('books.index', compact('books', 'count'));
     }

@@ -3,8 +3,7 @@
 <div class="row">
     <!-- 検索窓 -->
     <div class="col-md-4 col-lg-3  mb-4">
-        <!-- 非道通信でjsで処理するため、formタグのaction属性は不要 -->
-        <form id="searchForm" class="card mb-4">
+        <form class="card mb-4" action="{{ route('books.search') }}" method="get">
             <div class="card-header">本棚検索</div>
             <dl class="search-box card-body mb-0">
                 <dt>キーワード</dt>
@@ -40,13 +39,9 @@
     <div class="col-md-8 col-lg-9">
         <div class="alert alert-secondary d-flex justify-content-between align-items-center">
             <!-- デフォルトは全件検索結果 -->
-            <div>検索結果：<span id="resultCount">{{ $count ?? $books->total() }}</span>件</div>
+            <div>検索結果：{{ $count ?? $books->total() }}件</div>
         </div>
-        <div class="pagination">
-            {{ $books->links() }}
-        </div>
-
-        <div class="table-responsive" id="resultTable">            
+        <div class="table-responsive">            
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -57,7 +52,7 @@
                         <th>持ち主</th>
                     </tr>
                 </thead>
-                <tbody id="booksTableBody">
+                <tbody>
                     @foreach ($books as $book)
                     <tr>
                         <td>{{ $book->id }}</td>
@@ -67,11 +62,11 @@
                         <td>{{ $book->user->name }}</td>
                     </tr>
                     @endforeach
+                    {{ $books->links() }}
                 </tbody>
             </table>
         </div>
+        {{ $books->appends(Request::all())->links() }}
     </div>
 </div>
-
-<script src="{{ asset('js/search.js') }}"></script>
 @endsection

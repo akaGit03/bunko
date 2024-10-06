@@ -30,7 +30,7 @@
                                 <td class="book-author">{{ $book->type->name }}</td>
                                 @can('update', $book)
                                 <td class="book-edit">
-                                    <form action="{{ route('books.edit', $book) }}" method="GET">
+                                    <form action="{{ route('books.edit', $book) }}" method="get">
                                         @csrf
                                         <button type="submit">編集</button>
                                     </form>
