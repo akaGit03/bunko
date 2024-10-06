@@ -30,7 +30,7 @@
     <!-- ログインユーザー仕様 -->
     <div class="book-control">
         @can('update', $book)
-        <form action="{{ route('books.edit', $book) }}" method="get">
+        <form action="{{ route('books.edit', $book) }}" method="GET">
             @csrf
             <button type="submit">編集</button>
         </form>
@@ -96,7 +96,7 @@
             placeholder="コメントを入力する">{{old('body')}}</textarea>
         </div>
         <div class="form-group mt-4">
-        <button class="btn btn-success float-right mb-3 mr-3">コメントする</button>
+        <button type="submit" class="btn btn-success float-right mb-3 mr-3">コメントする</button>
         </div>
     </form>
 </div> 
