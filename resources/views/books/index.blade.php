@@ -70,7 +70,6 @@
                 </tbody>
             </table>
         </div>
-        {{ $books->appends(Request::all())->links() }}
     </div>
 </div>
 

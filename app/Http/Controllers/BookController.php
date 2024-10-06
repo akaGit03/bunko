@@ -134,6 +134,7 @@ class BookController extends Controller
             return response()->json([
                 'books' => $books,
                 'count' => $count,
+                'links' => (string) $books->links(),
             ]);
         }
 
