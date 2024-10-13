@@ -38,10 +38,10 @@
         </div>
     </div>
     <div class="inline-block relative w-64">
-        <select class="block appearance-none w-full bg-gray-200 border-2 border-gray-200 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-yellow-400"  id="inline-type">
-            <option class="bg-wthite" value=""></option>
+        <select class="block appearance-none w-full bg-gray-200 border-2 border-gray-200 hover:border-gray-400 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:bg-white focus:border-transparent focus:ring-2 focus:ring-yellow-400" id="inline-type" name="type_id">
+            <option class="bg-white" value=""></option>
             @foreach (App\Models\Type::all() as $type)
-            <option class="bg-wthite" value="{{ $type->id }}"{{ old('type_id', $book->type_id) == $type->id ? ' selected' : ''}}>{{ $type->name }}</option>
+            <option class="bg-white" value="{{ $type->id }}"{{ old('type_id', $book->type_id) == $type->id ? ' selected' : ''}}>{{ $type->name }}</option>
             @endforeach
         </select>
     </div>
