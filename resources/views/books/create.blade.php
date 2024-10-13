@@ -1,5 +1,3 @@
-<!-- formのCSSはBootstrapのまま-->
-
 <x-app-layout>
     <x-slot name="header">
         {{ __('蔵書管理') }}

@@ -3,7 +3,7 @@
 
 <!-- アラート表示 -->
 @if (session('success'))
-<div class="bg-yellow-400 text-center text-lg text-gray-700 py-4 my-4">
+<div class="bg-yellow-300 text-center text-lg text-gray-700 py-4 my-4">
     {{ session('success') }}
 </div>
 @endif

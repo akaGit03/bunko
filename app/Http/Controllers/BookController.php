@@ -123,6 +123,10 @@ class BookController extends Controller
             $query->where('type_id', $request->type_id);
         }
 
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+
         // 検索ヒット数
         $count = $query->count();
         

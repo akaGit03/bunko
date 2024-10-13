@@ -21,7 +21,7 @@
                         </thead>
                         <tbody>
                             @forelse ($currentBorrows as $borrowing)
-                            <tr class="w-full border-b hover:bg-amber-300 transition duration-100">
+                            <tr class="w-full border-b hover:bg-yellow-300 transition duration-100">
                                 <td class="px-4 py-4"><a href="{{ route('books.show', $borrowing->book) }}">{{ $borrowing->book->title }}</a></td>
                                 <td class="px-4 py-4">{{ $borrowing->book->author }}</td>
                                 <td class="px-4 py-4">{{ $borrowing->book->user->name }}</td>

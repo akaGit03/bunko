@@ -25,20 +25,20 @@
                 @auth
                 <form action="{{ route('home.borrows') }}" method="get" class="mt-2 lg:ml-2 lg:mt-0">
                     @csrf
-                    <button type="submit" class="bg-slate-400 text-white px-4 py-2 shadow-sm rounded hover:bg-slate-600">マイページ</button>
+                    <button type="submit" class="bg-slate-400 text-white px-4 py-2 shadow-sm hover:bg-slate-600">マイページ</button>
                 </form>
                 <form onsubmit="return confirm('ログアウトしますか？')" action="{{ route('logout') }}" method="post" class="mt-2 lg:ml-2 lg:mt-0">
                     @csrf
-                    <button type="submit" class="bg-orange-500 text-white px-4 py-2 shadow-sm rounded hover:bg-orange-700">ログアウト</button>
+                    <button type="submit" class="bg-orange-500 text-white px-4 py-2 shadow-sm hover:bg-orange-700">ログアウト</button>
                 </form>
                 @else
                 <form action="{{ route('login') }}" method="get" class="mt-2 lg:ml-2 lg:mt-0">
                     @csrf
-                    <button type="submit" class="bg-pink-500 text-white px-4 py-2 shadow-sm rounded hover:bg-pink-600">ログイン</button>
+                    <button type="submit" class="bg-pink-500 text-white px-4 py-2 shadow-sm hover:bg-pink-600">ログイン</button>
                 </form>
                 <form action="{{ route('register') }}" method="get" class="mt-2 lg:ml-2 lg:mt-0">
                     @csrf
-                    <button type="submit" class="bg-teal-600 text-white px-4 py-2 shadow-sm rounded hover:bg-teal-700">会員登録</button>
+                    <button type="submit" class="bg-teal-600 text-white px-4 py-2 shadow-sm hover:bg-teal-700">会員登録</button>
                 </form>
                 @endauth
             </div>
