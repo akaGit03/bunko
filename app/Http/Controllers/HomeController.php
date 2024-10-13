@@ -45,4 +45,9 @@ class HomeController extends Controller
 
         return view('home.lending', compact('currentLends', 'lendingHistory'));
     }
+
+    /* 利用案内の取得 */
+    public function guide() {
+        return view('home.guide');
+    }
 }
