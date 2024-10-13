@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/borrowing', [HomeController::class, 'borrows'])->name('home.borrows');
     Route::get('/dashboard/lending', [HomeController::class, 'lends'])->name('home.lends');
     Route::get('/dashboard/index', [HomeController::class, 'index'])->name('home.index');
+    Route::get('/dashboard/guide', [HomeController::class, 'guide'])->name('home.guide');
 
     // アカウント管理
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

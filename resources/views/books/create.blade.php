@@ -2,22 +2,24 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
+        {{ __('蔵書管理') }}
     </x-slot>
 
-    <div class="py-12">
+    <div class="text-gray-600 py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            @include('commons.errors')
-            <h2>新規登録</h2>
+            <h2 class="font-semibold text-2xl text-center pt-4 pb-8 md:text-3xl">新規登録</h2>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <form action="{{ route('books.store') }}" method="POST">
-                    @include('books.form')
-                    <button type="submit">登録する</button>
-                    <a href="{{ route('dashboard') }}">キャンセル</a>
-                </form>
-            </div>
+                <div class="flex justify-center py-10">
+                    <form class="w-full max-w-md md:max-w-xl" action="{{ route('books.store') }}" method="POST">
+                        @include('books.form')
+                        <div class="flex justify-center">
+                            <button type="submit" class="bg-teal-500 text-white font-bold text-xl py-2 px-4 shadow-sm rounded hover:bg-teal-600 focus:shadow-outline focus:outline-none" type="button">
+                                登録
+                            </button>
+                        </div>
+                    </form>
+                </div>
+             </div>
         </div>
     </div>
 

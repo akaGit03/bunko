@@ -10,9 +10,17 @@ export default {
     ],
 
     theme: {
+        colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
+            'custom-yellow': '#faea3c',
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                // 追記
+                title: ['"Sawarabi Mincho"', 'sans-serif'],
+                body: ['Robot', 'sans-serif'],
             },
         },
     },
