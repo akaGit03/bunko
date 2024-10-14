@@ -12,11 +12,11 @@
                     <table class="container w-full">
                         <thead class="whitespace-nowrap">
                             <tr class="md:text-lg">
-                                <th class="px-4 py-4 text-left">タイトル</th>
-                                <th class="px-4 py-4 text-left">著者</th>
-                                <th class="px-4 py-4 text-left">持ち主</th>
-                                <th class="px-4 py-4 text-left">借りた日</th>
-                                <th class="px-4 py-4 text-left"></th>
+                                <th class="w-2/6 px-4 py-4 text-left">タイトル</th>
+                                <th class="w-1/6 px-4 py-4 text-left">著者</th>
+                                <th class="w-1/6 px-4 py-4 text-left">持ち主</th>
+                                <th class="w-1/6 px-4 py-4 text-left">借りた日</th>
+                                <th class="w-1/6 px-4 py-4 text-left"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,7 +25,7 @@
                                 <td class="px-4 py-4"><a href="{{ route('books.show', $borrowing->book) }}">{{ $borrowing->book->title }}</a></td>
                                 <td class="px-4 py-4">{{ $borrowing->book->author }}</td>
                                 <td class="px-4 py-4">{{ $borrowing->book->user->name }}</td>
-                                <td class="px-4 py-4">{{ $borrowing->checkout_date }}</td>
+                                <td class="px-4 py-4">{{ \Carbon\Carbon::parse($borrowing->checkout_date)->format('Y-m-d') }}</td>
                                 <td class="px-4 py-4">
                                 <form action="{{ route('books.returnBook', $borrowing->book->id) }}" method="POST" onsubmit="return confirm('この本を返却しますか？')">
                                     @csrf
@@ -53,12 +53,11 @@
                     <table class="container w-full">
                         <thead class="whitespace-nowrap">
                             <tr class="md:text-lg">
-                                <th class="px-4 py-4 text-left">タイトル</th>
-                                <th class="px-4 py-4 text-left">著者</th>
-                                <th class="px-4 py-4 text-left">持ち主</th>
-                                <th class="px-4 py-4 text-left">借りた日</th>
-                                <th class="px-4 py-4 text-left">返却日</th>
-                                <th class="px-4 py-4 text-left">返却日</th>
+                                <th class="w-2/6 px-4 py-4 text-left">タイトル</th>
+                                <th class="w-1/6 px-4 py-4 text-left">著者</th>
+                                <th class="w-1/6 px-4 py-4 text-left">持ち主</th>
+                                <th class="w-1/6 px-4 py-4 text-left">借りた日</th>
+                                <th class="w-1/6 px-4 py-4 text-left">返却日</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,9 +66,8 @@
                                 <td class="px-4 py-4"><a href="{{ route('books.show', $borrowing->book) }}">{{ $borrowing->book->title }}</a></td>
                                 <td class="px-4 py-4">{{ $borrowing->book->author }}</td>
                                 <td class="px-4 py-4">{{ $borrowing->book->user->name }}</td>
-                                <td class="px-4 py-4">{{ $borrowing->checkout_date }}</td>
-                                <td class="px-4 py-4">{{ $borrowing->return_date }}</td>
-                                <td class="px-4 py-4">{{ $borrowing->return_date }}</td>
+                                <td class="px-4 py-4">{{ \Carbon\Carbon::parse($borrowing->checkout_date)->format('Y-m-d') }}</td>
+                                <td class="px-4 py-4">{{ \Carbon\Carbon::parse($borrowing->return_date)->format('Y-m-d') }}</td>
                             </tr>
                             @empty
                             <tr>

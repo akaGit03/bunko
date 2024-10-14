@@ -39,7 +39,10 @@
                 </dd>
             </dl>
             <div class="flex justify-center mt-4">
-                <button type="submit" class="w-2/5 bg-pink-400 text-white text-lg py-2 shadow-sm hover:bg-pink-600">検索</button>
+                <button type="submit" class="flex items-center justify-center w-2/5 bg-pink-400 text-white text-lg py-2 shadow-sm hover:bg-pink-600">
+                    検索
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
             </div>
         </form>
     </div>
