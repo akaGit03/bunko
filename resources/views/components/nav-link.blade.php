@@ -1,12 +1,15 @@
-@props(['active'])
+@props([
+    "active",
+])
 
 @php
-$classes = ($active ?? false)
-            ? 'inline-flex items-center px-2 py-4 border-b-2 border-transparent text-base leading-5 text-gray-800 rounded-full hover:bg-yellow-300 focus:outline-none focus:bg-yellow-200 transition duration-100 ease-out'
-            : 'inline-flex items-center px-2 py-4 border-b-2 border-transparent text-base leading-5 text-gray-800 rounded-full hover:bg-yellow-300 focus:outline-none focus:bg-yellow-200 transition duration-100 ease-out';
+    $classes =
+        $active ?? false
+            ? "text-gray-800 hover:bg-yellow-300 focus:bg-yellow-200 inline-flex items-center rounded-full border-b-2 border-transparent px-2 py-4 text-base leading-5 transition duration-100 ease-out focus:outline-none"
+            : "text-gray-800 hover:bg-yellow-300 focus:bg-yellow-200 inline-flex items-center rounded-full border-b-2 border-transparent px-2 py-4 text-base leading-5 transition duration-100 ease-out focus:outline-none";
 @endphp
 
-<a {{ $attributes->merge(['class' => $classes]) }}>
+<a {{ $attributes->merge(["class" => $classes]) }}>
     {{ $slot }}
 </a>
 
