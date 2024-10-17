@@ -15,8 +15,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::paginate(30);
-        $data = ['books' => $books];
-        return view('books.index', $data);
+        return view('books.index', compact('books'));
     }
 
     /**
@@ -25,8 +24,7 @@ class BookController extends Controller
     public function create()
     {
         $book = new Book();
-        $data = ['book' => $book];
-        return view('books.create', $data);
+        return view('books.create', compact('book'));
     }
 
     /**
@@ -57,8 +55,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $data = ['book' => $book];
-        return view( 'books.show', $data);
+        return view( 'books.show', compact('book'));
     }
 
     /**
@@ -67,8 +64,7 @@ class BookController extends Controller
     public function edit(Book $book)
     {
         $this->authorize($book);
-        $data = ['book' => $book];
-        return view( 'books.edit', $data);
+        return view( 'books.edit', compact('book'));
     }
 
     /**
