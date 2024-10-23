@@ -70,8 +70,7 @@
                 <div class="mt-4 flex justify-center">
                     <button
                         type="submit"
-                        class="bg-pink-400 text-white hover:bg-pink-600 flex w-2/5 items-center justify-center py-2 text-lg shadow-sm">
-                        検索
+                        class="bg-pink-400 text-white hover:bg-pink-500 flex w-2/5 items-center justify-center py-2 pr-2 text-lg shadow-sm">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="22"
@@ -86,6 +85,7 @@
                             <circle cx="11" cy="11" r="8"></circle>
                             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
+                        検索
                     </button>
                 </div>
             </form>

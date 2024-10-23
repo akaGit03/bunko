@@ -30,7 +30,7 @@
                             @forelse ($currentLends as $book)
                                 <tr
                                     class="hover:bg-yellow-300 w-full border-b transition duration-100">
-                                    <td class="px-4 py-4">
+                                    <td class="hover:text-pink-400 px-4 py-4">
                                         <a
                                             href="{{ route("books.show", $book) }}">
                                             {{ $book->title }}
@@ -87,7 +87,7 @@
                             @forelse ($lendingHistory as $book)
                                 <tr
                                     class="hover:bg-yellow-300 w-full border-b transition duration-100">
-                                    <td class="px-4 py-4">
+                                    <td class="hover:text-pink-400 px-4 py-4">
                                         {{ $book->title }}
                                     </td>
                                     <td class="px-4 py-4">

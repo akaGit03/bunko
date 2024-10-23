@@ -4,14 +4,16 @@
         <div class="flex justify-between py-4">
             <div class="flex px-4">
                 <!-- ロゴ -->
+                <!--
                 <div class="flex shrink-0 items-center">
                     <a href="{{ route("dashboard") }}">
                         <x-application-logo
                             class="text-gray-800 block h-9 w-auto fill-current" />
                     </a>
                 </div>
+                -->
 
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:flex">
                     <x-nav-link
                         :href="route('books.index')"
                         :active="request()->routeIs('dashboard')">
@@ -50,14 +52,6 @@
                         {{ __("本の登録") }}
                     </x-nav-link>
                 </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link
-                        :href="route('home.guide')"
-                        :active="request()->routeIs('dashboard')">
-                        {{ __("利用案内") }}
-                    </x-nav-link>
-                </div>
             </div>
 
             <!-- アカウント管理 -->
@@ -65,9 +59,25 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="text-gray-500 bg-white hover:text-gray-700 inline-flex items-center rounded-md border border-transparent px-3 py-2 text-sm font-medium leading-4 transition duration-150 ease-in-out focus:outline-none">
-                            <div>{{ Auth::user()->name }}</div>
-
+                            class="text-slate-500 bg-white hover:text-slate-700 inline-flex items-center rounded-md border border-transparent px-3 py-2 font-medium leading-4 transition duration-150 ease-in-out focus:outline-none">
+                            <div class="flex items-center">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="30"
+                                height="30"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>    
+                            <!-- 
+                                {{ Auth::user()->name }}</div>
+                            -->
                             <div class="ms-1">
                                 <svg
                                     class="h-4 w-4 fill-current"

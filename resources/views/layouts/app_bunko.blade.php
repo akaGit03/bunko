@@ -40,7 +40,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-slate-400 text-white hover:bg-slate-600 px-4 py-2 shadow-sm">
+                                class="bg-slate-400 text-white hover:bg-slate-500 px-4 py-2 shadow-sm">
                                 マイページ
                             </button>
                         </form>
@@ -52,7 +52,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-orange-500 text-white hover:bg-orange-700 px-4 py-2 shadow-sm">
+                                class="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 shadow-sm">
                                 ログアウト
                             </button>
                         </form>
