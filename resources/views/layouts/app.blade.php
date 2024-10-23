@@ -50,7 +50,7 @@
                 <!-- アラート表示 -->
                 @if (session("success"))
                     <div
-                        class="bg-yellow-300 text-gray-700 my-4 py-4 text-center text-lg shadow-sm">
+                        class="bg-yellow-300 text-gray-700 mb-4 py-6 text-center text-lg shadow-sm">
                         {{ session("success") }}
                     </div>
                 @endif
