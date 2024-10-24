@@ -64,7 +64,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-pink-500 text-white hover:bg-pink-600 px-4 py-2 shadow-sm">
+                                class="bg-pink-400 text-white hover:bg-pink-500 px-4 py-2 shadow-sm">
                                 ログイン
                             </button>
                         </form>
@@ -75,7 +75,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 shadow-sm">
+                                class="bg-teal-500 text-white hover:bg-teal-600 px-4 py-2 shadow-sm">
                                 会員登録
                             </button>
                         </form>
@@ -84,6 +84,13 @@
             </div>
         </header>
         <main class="bg-stone-100">
+            <!-- アラート表示 -->
+            @if (session("success"))
+                <div class="bg-yellow-300 text-gray-700 mb-4 py-6 text-center text-xl shadow-sm">
+                    {{ session("success") }}
+                </div>
+            @endif
+
             <div class="container mx-auto py-8">
                 @yield("content")
             </div>

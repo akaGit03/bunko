@@ -1,11 +1,6 @@
 @extends("layouts.app_bunko")
 @section("content")
-    <!-- アラート表示 -->
-    @if (session("success"))
-        <div class="bg-yellow-300 text-gray-700 my-4 py-4 text-center text-lg">
-            {{ session("success") }}
-        </div>
-    @endif
+    
 
     <!-- 本の詳細情報 -->
     <div class="text-gray-700 py-12">
@@ -107,7 +102,7 @@
                                     onsubmit="return confirm('この本を借りますか？')">
                                     @csrf
                                     <button
-                                        class="bg-pink-400 text-white hover:bg-pink-600 rounded px-4 py-2 text-xl font-semibold shadow-sm"
+                                        class="bg-pink-400 text-white hover:bg-pink-500 rounded px-4 py-2 text-xl font-semibold shadow-sm"
                                         type="submit">
                                         借りる
                                     </button>
@@ -162,9 +157,7 @@
                                         id="body"
                                         cols="30"
                                         rows="6"
-                                        placeholder="コメントを255文字以内で入力してください">
-                                        {{ old("body") }}
-                                    </textarea>
+                                        placeholder="コメントを255文字以内で入力してください">{{ old("body") }}</textarea>
                                 </div>
                                 <div
                                     class="form-group mt-4 flex justify-center">
@@ -197,7 +190,7 @@
                                         <!-- ユーザー名 -->
                                         <span>
                                             {{ $comment->user->name ?? "削除されたユーザー" }}
-                                            さん
+                                             さん
                                         </span>
 
                                         <!-- コメント主のみ削除できる -->

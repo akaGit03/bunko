@@ -13,6 +13,7 @@ class BookSeeder extends Seeder
      */
     public function run(): void
     {
+        /*
         Book::create(["title" => "ドラえもん", "author" => "藤子・Ｆ・不二雄", "type_id" => 3, "user_id" => 1]);
         Book::create(["title" => "たけくらべ", "author" => "樋口一葉", "type_id" => 3, "user_id" => 1]);
         Book::create(["title" => "ダンジョン飯", "author" => "九井諒子", "type_id" => 3, "user_id" => 2]);
@@ -34,13 +35,14 @@ class BookSeeder extends Seeder
         Book::create(["title" => "象の旅", "author" => "ジョゼ・サラマーゴ", "type_id"=> 1, "user_id" => 2]);
         Book::create(["title" => "ゲド戦記", "author" => "アーリュラ・K・ル=グウィン", "type_id" => 1, "user_id" => 3]);
         Book::create(["title" => "珈琲時間", "author" => "豊田徹也", "type_id" => 3, "user_id" => 2]);
-        
-        for ($i = 1; $i <= 100; $i++) {
+        */
+
+        for ($i = 1; $i <= 200; $i++) {
             Book::create([
-                "title" => "テスト パート" . $i,
-                "author" => "テスター",
-                "type_id" => rand(1, 8), 
-                "user_id" => rand(1, 3), 
+                "title" => "テスト No." . $i,
+                "author" => "ライター" . chr(mt_rand(65,90)),
+                "type_id" => mt_rand(1, 9), 
+                "user_id" => mt_rand(1, 4), 
             ]);
         }
     }

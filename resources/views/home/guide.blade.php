@@ -1,66 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-gray-800 text-xl font-semibold leading-tight">
-            {{ __("Guide") }}
-        </h2>
+        {{ __("利用案内") }}
     </x-slot>
 
-    <div id="app" class="bg-gray-500 lg:bg-blue-500">
-        <div class="text-white container mx-auto">
-            <div class="flex items-center justify-between">
-                <h1 class="text-4xl font-semibold md:text-xl">HR</h1>
-                <div>
-                    <button @click="isOpen = !isOpen" class="md:hidden">
-                        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                            <path
-                                d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            <div :class="isOpen ? 'block' : 'hidden' ">
-                <ul class="md:flex md:items-center md:justify-around">
-                    <li class="border-b md:border-none">
-                        <a
-                            href="#"
-                            class="hover:bg-gray-600 my-4 block rounded px-8 py-2">
-                            HRとは
-                        </a>
-                    </li>
-                    <li class="border-b md:border-none">
-                        <a
-                            href="#"
-                            class="hover:bg-gray-600 my-4 block rounded px-8 py-2">
-                            機能一覧
-                        </a>
-                    </li>
-                    <li class="border-b md:border-none">
-                        <a
-                            href="#"
-                            class="hover:bg-gray-600 my-4 block rounded px-8 py-2">
-                            料金プラン
-                        </a>
-                    </li>
-                    <li class="border-b md:border-none">
-                        <a
-                            href="#"
-                            class="hover:bg-gray-600 my-4 block rounded px-8 py-2">
-                            お知らせ
-                        </a>
-                    </li>
-                    <li class="item-center flex">
-                        <div class="my-8 md:my-4">
-                            <a
-                                href="#"
-                                class="bg-orange-500 hover:bg-orange-400 rounded-full px-6 py-2">
-                                お問い合わせ
-                            </a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    
     <div class="container mx-auto">
         <p>コンテンツ領域</p>
     </div>

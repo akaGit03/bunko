@@ -86,7 +86,7 @@ class BookController extends Controller
         $book->comment = $request->comment;
         $book->save();
 
-        return redirect(route('books.show', $book));
+        return redirect(route('books.show', $book))->with('success', '図書情報が更新されました');
     }
 
     /**

@@ -37,11 +37,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    // ダッシュボード
+    // マイページ
     Route::get('/dashboard/borrowing', [HomeController::class, 'borrows'])->name('home.borrows');
     Route::get('/dashboard/lending', [HomeController::class, 'lends'])->name('home.lends');
     Route::get('/dashboard/index', [HomeController::class, 'index'])->name('home.index');
-    Route::get('/dashboard/guide', [HomeController::class, 'guide'])->name('home.guide');
+    // Route::get('/dashboard/guide', [HomeController::class, 'guide'])->name('home.guide');
 
     // アカウント管理
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
