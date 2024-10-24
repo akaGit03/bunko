@@ -15,7 +15,7 @@ class LendingController extends Controller
             return response()->json(['message' => 'この本は現在貸出中です。返却されるまでお待ちください'], 400);
         }
 
-        /* 貸出処理 */ 
+        /** 貸出処理 */ 
 
         // lendingsテーブルの登録
         $lending = new Lending();
@@ -40,7 +40,7 @@ class LendingController extends Controller
             return response()->json(['message' => 'この本は現在貸出されていません'], 400);
         }
 
-        /* 返却処理 */
+        /** 返却処理 */
 
         //　lendingsテーブルの更新
         $lending->return_date = now();

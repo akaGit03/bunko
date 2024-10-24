@@ -99,7 +99,7 @@ class BookController extends Controller
         return redirect()->back()->with('success', '削除されました');
     }
 
-    /* 検索機能 */
+    /** 検索機能 */
     public function search(Request $request)
     {
         $query = Book::query();

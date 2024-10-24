@@ -89,6 +89,11 @@
                 <div class="bg-yellow-300 text-gray-700 mb-4 py-6 text-center text-xl shadow-sm">
                     {{ session("success") }}
                 </div>
+                @elseif ($errors->any())
+                <div class="bg-orange-500 text-white mb-4 py-6 text-center text-xl shadow-sm">
+                    <p>【！！】コメントエラーです。コメント入力欄をご確認ください。</p>
+                </div>
+                </ul>
             @endif
 
             <div class="container mx-auto py-8">
