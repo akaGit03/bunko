@@ -5,26 +5,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <title>{{ config("app.name") }}</title>
 
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link
+            href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
+            rel="stylesheet" />
+
+        <!-- Font:Roboto -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
             rel="stylesheet" />
+            
+        <!-- Font:Sawarabi Mincho -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
             rel="stylesheet" />
 
+        <!-- Scripts -->
+        @vite(["resources/css/app.css", "resources/js/app.js"])
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
+    <body class="font-body">
         <header class="bg-white">
             <div
                 class="container mx-auto flex items-center justify-between px-2 pb-2 pt-4">
-                <a href="/books" class="text-teal-500 text-8xl">
+                <a href="/books" class="font-title text-teal-500 text-8xl">
                     {{ config("app.name") }}
                 </a>
                 <div
@@ -40,7 +53,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-slate-400 text-white hover:bg-slate-600 px-4 py-2 shadow-sm">
+                                class="bg-slate-400 text-white hover:bg-slate-500 px-4 py-2 shadow-sm">
                                 マイページ
                             </button>
                         </form>
@@ -52,7 +65,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-orange-500 text-white hover:bg-orange-700 px-4 py-2 shadow-sm">
+                                class="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 shadow-sm">
                                 ログアウト
                             </button>
                         </form>
@@ -64,7 +77,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-pink-500 text-white hover:bg-pink-600 px-4 py-2 shadow-sm">
+                                class="bg-pink-400 text-white hover:bg-pink-500 px-4 py-2 shadow-sm">
                                 ログイン
                             </button>
                         </form>
@@ -75,7 +88,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-teal-600 text-white hover:bg-teal-700 px-4 py-2 shadow-sm">
+                                class="bg-teal-500 text-white hover:bg-teal-600 px-4 py-2 shadow-sm">
                                 会員登録
                             </button>
                         </form>
@@ -84,6 +97,18 @@
             </div>
         </header>
         <main class="bg-stone-100">
+            <!-- アラート表示 -->
+            @if (session("success"))
+                <div class="bg-custom-yellow text-gray-600 mb-4 py-6 text-center text-xl shadow-sm">
+                    {{ session("success") }}
+                </div>
+                @elseif ($errors->any())
+                <div class="bg-orange-500 text-white mb-4 py-6 text-center text-xl shadow-sm">
+                    <p>【！！】コメントエラーです。コメント入力欄をご確認ください。</p>
+                </div>
+                </ul>
+            @endif
+
             <div class="container mx-auto py-8">
                 @yield("content")
             </div>

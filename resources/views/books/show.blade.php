@@ -1,11 +1,6 @@
 @extends("layouts.app_bunko")
 @section("content")
-    <!-- アラート表示 -->
-    @if (session("success"))
-        <div class="bg-yellow-300 text-gray-700 my-4 py-4 text-center text-lg">
-            {{ session("success") }}
-        </div>
-    @endif
+    
 
     <!-- 本の詳細情報 -->
     <div class="text-gray-700 py-12">
@@ -107,7 +102,7 @@
                                     onsubmit="return confirm('この本を借りますか？')">
                                     @csrf
                                     <button
-                                        class="bg-pink-400 text-white hover:bg-pink-600 rounded px-4 py-2 text-xl font-semibold shadow-sm"
+                                        class="bg-pink-400 text-white hover:bg-pink-500 rounded px-4 py-2 text-xl font-semibold shadow-sm"
                                         type="submit">
                                         借りる
                                     </button>
@@ -135,17 +130,20 @@
 
             <!-- コメントフォーム -->
             @auth
-                <div class="flex justify-center">
+                <div class="{{ $errors->any() ? 'hidden' : '' }} flex justify-center">
                     <button
-                        class="bg-teal-500 text-white hover:bg-teal-600 my-4 rounded px-4 py-2 font-semibold shadow-sm lg:ml-2"
+                        class="bg-teal-500 text-white hover:bg-teal-600 my-4 rounded px-4 py-2 font-semibold shadow-sm"
                         id="toggleButton">
                         コメントする
                     </button>
                 </div>
-                <div class="hidden" id="commentForm">
+                <div class="{{ $errors->any() ? '' : 'hidden' }}" id="commentForm">
                     <div
                         class="bg-white mb-4 flex justify-center rounded p-4 shadow-md">
-                        <div class="flex justify-center py-6">
+                        <div class="flex flex-col justify-center py-6">
+                            <div class="mb-6">
+                                @include("commons.errors")
+                            </div>
                             <form
                                 method="POST"
                                 action="{{ route("comment.store") }}"
@@ -158,18 +156,17 @@
                                 <div class="form-group">
                                     <textarea
                                         name="body"
-                                        class="border-4 p-4"
-                                        id="body"
+                                        class="bg-gray-200 border-gray-200 @error('comment') border-orange-500 @else border-gray-200 @enderror focus:bg-white focus:ring-teal-500 w-full appearance-none rounded border-2 px-4 py-2 leading-tight focus:border-transparent focus:outline-none focus:ring-2"
+                                        id="inline-comment"
                                         cols="30"
-                                        rows="6"
-                                        placeholder="コメントを255文字以内で入力してください">
-                                        {{ old("body") }}
-                                    </textarea>
+                                        rows="10"
+                                        placeholder="コメントを255文字以内で入力してください">{{ old("body") }}</textarea>
+                                    <p class="@error('comment') text-orange-600 @enderror" id="char-count">0/255 文字</p>
                                 </div>
                                 <div
                                     class="form-group mt-4 flex justify-center">
                                     <button
-                                        class="bg-teal-500 text-white hover:bg-teal-600 ml-2 rounded px-4 py-2 font-semibold">
+                                        class="bg-teal-500 text-white hover:bg-teal-600 ml-2 rounded px-4 py-2 font-semibold shadow-sm">
                                         投稿する
                                     </button>
                                 </div>
@@ -197,7 +194,7 @@
                                         <!-- ユーザー名 -->
                                         <span>
                                             {{ $comment->user->name ?? "削除されたユーザー" }}
-                                            さん
+                                             さん
                                         </span>
 
                                         <!-- コメント主のみ削除できる -->
@@ -227,16 +224,7 @@
         </div>
     </div>
 
-    <script>
-        /* コメントフォームの開閉 */
-        document
-            .getElementById('toggleButton')
-            .addEventListener('click', function () {
-                let form = document.getElementById('commentForm');
-                let button = document.getElementById('toggleButton');
+    <script src="{{ asset('js/commentToggle.js') }}"></script>
+    <script src="{{ asset('js/commentForm.js') }}"></script>
 
-                form.classList.toggle('hidden');
-                button.style.display = 'none';
-            });
-    </script>
 @endsection

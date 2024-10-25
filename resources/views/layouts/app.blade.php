@@ -12,12 +12,15 @@
         <link
             href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
             rel="stylesheet" />
-        <!-- 追加 -->
+            
+        <!-- Font:Roboto -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
             rel="stylesheet" />
+
+        <!-- Font:Sawarabi Mincho -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -38,7 +41,7 @@
                     <div
                         class="mx-auto max-w-7xl px-4 pb-6 pt-8 sm:px-6 lg:px-8">
                         <h2
-                            class="text-teal-500 pl-4 text-center text-4xl font-semibold leading-tight md:text-6xl lg:text-left">
+                            class="font-title text-teal-500 pl-4 text-center text-4xl font-semibold leading-tight md:text-6xl lg:text-left">
                             {{ $header }}
                         </h2>
                     </div>
@@ -46,11 +49,11 @@
             @endisset
 
             <!-- Page Content -->
-            <main>
+            <main class="font-body">
                 <!-- アラート表示 -->
                 @if (session("success"))
                     <div
-                        class="bg-yellow-300 text-gray-700 my-4 py-4 text-center text-lg shadow-sm">
+                        class="bg-custom-yellow text-gray-600 mb-4 py-6 text-center text-xl shadow-sm">
                         {{ session("success") }}
                     </div>
                 @endif

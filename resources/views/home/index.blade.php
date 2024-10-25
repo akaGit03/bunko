@@ -25,8 +25,8 @@
                         <tbody>
                             @forelse ($books as $book)
                                 <tr
-                                    class="hover:bg-yellow-300 w-full border-b transition duration-100">
-                                    <td class="w-2/7 p-4">
+                                    class="hover:bg-custom-yellow w-full border-b transition duration-100">
+                                    <td class="w-2/7 hover:text-pink-400 p-4">
                                         <a
                                             href="{{ route("books.show", $book) }}">
                                             {{ $book->title }}
@@ -51,7 +51,7 @@
                                                 @csrf
                                                 <button
                                                     type="submit"
-                                                    class="bg-slate-500 text-white hover:bg-slate-700 rounded px-4 py-2 font-semibold shadow-sm">
+                                                    class="bg-slate-500 text-white hover:bg-slate-600 rounded px-4 py-2 font-semibold shadow-sm">
                                                     編集
                                                 </button>
                                             </form>

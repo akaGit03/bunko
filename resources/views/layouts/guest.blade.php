@@ -19,15 +19,17 @@
     <body class="text-gray-900 font-sans antialiased">
         <div
             class="bg-gray-100 flex min-h-screen flex-col items-center pt-6 sm:justify-center sm:pt-0">
+            <!--
             <div>
                 <a href="/">
                     <x-application-logo
                         class="text-gray-500 h-20 w-20 fill-current" />
                 </a>
             </div>
+            -->
 
             <div
-                class="bg-white mt-6 w-full overflow-hidden px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg">
+                class="bg-white mt-6 w-full overflow-hidden px-6 py-6 shadow-md sm:max-w-md sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>

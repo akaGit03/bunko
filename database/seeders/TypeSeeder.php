@@ -15,6 +15,7 @@ class TypeSeeder extends Seeder
     {
         Type::create(["name" => "ハードカバー"]);
         Type::create(["name" => "文庫"]);
+        Type::create(["name" => "絵本"]);
         Type::create(["name" => "マンガ"]);
         Type::create(["name" => "新書"]);
         Type::create(["name" => "雑誌"]);
