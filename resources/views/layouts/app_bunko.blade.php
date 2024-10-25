@@ -5,26 +5,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <title>{{ config("app.name") }}</title>
 
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link
+            href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
+            rel="stylesheet" />
+
+        <!-- Font:Roboto -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
             rel="stylesheet" />
+            
+        <!-- Font:Sawarabi Mincho -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
             rel="stylesheet" />
 
+        <!-- Scripts -->
+        @vite(["resources/css/app.css", "resources/js/app.js"])
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
+    <body class="font-body">
         <header class="bg-white">
             <div
                 class="container mx-auto flex items-center justify-between px-2 pb-2 pt-4">
-                <a href="/books" class="text-teal-500 text-8xl">
+                <a href="/books" class="font-title text-teal-500 text-8xl">
                     {{ config("app.name") }}
                 </a>
                 <div
@@ -86,7 +99,7 @@
         <main class="bg-stone-100">
             <!-- アラート表示 -->
             @if (session("success"))
-                <div class="bg-yellow-300 text-gray-700 mb-4 py-6 text-center text-xl shadow-sm">
+                <div class="bg-custom-yellow text-gray-600 mb-4 py-6 text-center text-xl shadow-sm">
                     {{ session("success") }}
                 </div>
                 @elseif ($errors->any())

@@ -25,7 +25,7 @@
                         <tbody>
                             @forelse ($books as $book)
                                 <tr
-                                    class="hover:bg-yellow-300 w-full border-b transition duration-100">
+                                    class="hover:bg-custom-yellow w-full border-b transition duration-100">
                                     <td class="w-2/7 hover:text-pink-400 p-4">
                                         <a
                                             href="{{ route("books.show", $book) }}">

@@ -11,15 +11,23 @@
         <link
             href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap"
             rel="stylesheet" />
+        
+        <!-- Font:Sawarabi Mincho -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap"
+            rel="stylesheet" />
 
         <!-- Styles -->
+        @vite(["resources/css/app.css", "resources/js/app.js"])
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="dark:bg-black dark:text-white/50 font-sans antialiased">
+    <body class="dark:bg-black dark:text-white/50 font-body antialiased">
         <div
             class="bg-stone-100 text-black/50 dark:bg-black dark:text-white/50 flex h-screen items-center justify-center">
             <main class="text-center">
-                <h1 class="text-teal-400 mb-8 p-4 text-8xl">川本文庫</h1>
+                <h1 class="font-title text-teal-400 mb-8 p-4 text-8xl">川本文庫</h1>
                 <nav class="flex flex-col items-center">
                     <a
                         href="{{ route("books.index") }}"

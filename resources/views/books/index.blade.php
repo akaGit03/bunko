@@ -114,7 +114,7 @@
                     <tbody class="divide-gray-200 divide-y">
                         @foreach ($books as $book)
                             <tr
-                                class="hover:bg-yellow-300 transition duration-100">
+                                class="hover:bg-custom-yellow transition duration-100">
                                 <td class="text-center">
                                     @if ($book->status)
                                         <span class="text-2xl">×</span>
