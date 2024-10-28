@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __("マイメニュー") }}
+        {{ __("マイページ") }}
     </x-slot>
 
     <div class="py-12">

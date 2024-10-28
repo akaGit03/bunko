@@ -86,7 +86,7 @@
                         <a
                             href="{{ $paginator->previousPageUrl() }}"
                             rel="prev"
-                            class="text-slate-600 bg-white border-gray-200 hover:bg-yellow-300 ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800 relative inline-flex items-center rounded-l border px-2 py-2 leading-5 transition duration-150 ease-in-out focus:z-10 focus:outline-none focus:ring"
+                            class="text-slate-600 bg-white border-gray-200 hover:bg-custom-yellow ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800 relative inline-flex items-center rounded-l border px-2 py-2 leading-5 transition duration-150 ease-in-out focus:z-10 focus:outline-none focus:ring"
                             aria-label="{{ __("pagination.previous") }}">
                             <svg
                                 class="h-5 w-5"
@@ -125,7 +125,7 @@
                                 @else
                                     <a
                                         href="{{ $url }}"
-                                        class="text-slate-600 bg-white border-gray-200 hover:bg-yellow-300 ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800 relative -ml-px inline-flex items-center border px-4 py-2 leading-5 transition duration-150 ease-in-out focus:z-10 focus:outline-none focus:ring"
+                                        class="text-slate-600 bg-white border-gray-200 hover:bg-custom-yellow ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800 relative -ml-px inline-flex items-center border px-4 py-2 leading-5 transition duration-150 ease-in-out focus:z-10 focus:outline-none focus:ring"
                                         aria-label="{{ __("Go to page :page", ["page" => $page]) }}">
                                         {{ $page }}
                                     </a>
@@ -140,7 +140,7 @@
                         <a
                             href="{{ $paginator->nextPageUrl() }}"
                             rel="next"
-                            class="text-slate-600 bg-white border-gray-200 hover:bg-yellow-300 ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800 relative -ml-px inline-flex items-center rounded-r border px-2 py-2 leading-5 transition duration-150 ease-in-out focus:z-10 focus:outline-none focus:ring"
+                            class="text-slate-600 bg-white border-gray-200 hover:bg-custom-yellow ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800 relative -ml-px inline-flex items-center rounded-r border px-2 py-2 leading-5 transition duration-150 ease-in-out focus:z-10 focus:outline-none focus:ring"
                             aria-label="{{ __("pagination.next") }}">
                             <svg
                                 class="h-5 w-5"

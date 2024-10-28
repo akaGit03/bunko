@@ -1,4 +1,4 @@
-@extends("layouts.app_bunko")
+@extends("layouts.app-bunko")
 @section("content")
     <div class="text-slate-600 flex flex-col gap-4 lg:flex-row">
         <!-- 検索窓 -->
@@ -7,22 +7,22 @@
                 class="bg-white mb-4 rounded p-4 shadow"
                 action="{{ route("books.search") }}"
                 method="get">
-                <div class="mb-2 text-lg font-semibold">本棚検索</div>
+                <!-- <div class="mb-2 text-lg font-semibold text-center">本棚検索</div> -->
                 <dl class="mb-4">
-                    <dt class="font-medium">キーワード</dt>
+                    <dt class="font-medium mb-1">キーワード</dt>
                     <dd class="mb-2">
                         <input
                             type="text"
                             name="keyword"
-                            class="w-full rounded border px-4 py-2"
+                            class="w-full rounded border-gray-400 focus:ring-teal-500 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2"
                             placeholder="タイトル・著者名"
                             value="{{ Request::get("keyword") }}" />
                     </dd>
-                    <dt class="font-medium">持ち主</dt>
+                    <dt class="font-medium mb-1">持ち主</dt>
                     <dd class="mb-2">
                         <select
                             name="user_id"
-                            class="bg-white w-full rounded border px-4 py-2">
+                            class="bg-white w-full rounded border-gray-400 focus:ring-teal-500 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2">
                             <option value=""></option>
                             @foreach (App\Models\User::all() as $user)
                                 <option
@@ -33,11 +33,11 @@
                             @endforeach
                         </select>
                     </dd>
-                    <dt class="font-medium">種類</dt>
+                    <dt class="font-medium mb-1">種類</dt>
                     <dd class="mb-2">
                         <select
                             name="type_id"
-                            class="bg-white w-full rounded border px-4 py-2">
+                            class="bg-white w-full rounded border-gray-400 focus:ring-teal-500 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2">
                             <option value=""></option>
                             @foreach (App\Models\Type::all() as $type)
                                 <option
@@ -48,11 +48,11 @@
                             @endforeach
                         </select>
                     </dd>
-                    <dt class="font-medium">貸出可否</dt>
+                    <dt class="font-medium mb-1">貸出可否</dt>
                     <dd class="mb-2">
                         <select
                             name="status"
-                            class="bg-white w-full rounded border px-4 py-2">
+                            class="bg-white w-full rounded border-gray-400 focus:ring-teal-500 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2">
                             <option value=""></option>
                             <option
                                 value="0"
@@ -67,7 +67,7 @@
                         </select>
                     </dd>
                 </dl>
-                <div class="mt-4 flex justify-center">
+                <div class="mt-6 flex justify-center">
                     <button
                         type="submit"
                         class="bg-pink-400 text-white hover:bg-pink-500 flex w-2/5 items-center justify-center py-2 pr-2 text-lg shadow-sm">
@@ -104,7 +104,7 @@
                 <table class="bg-white w-full table-auto rounded-md">
                     <thead class="border-pink-300 whitespace-nowrap border-b-2">
                         <tr>
-                            <th class="w-1/8 px-4 py-4 text-center">貸出</th>
+                            <th class="w-1/8 px-4 py-4 text-center">在架</th>
                             <th class="w-3/8 px-4 py-4 text-left">タイトル</th>
                             <th class="w-2/8 px-4 py-4 text-left">著者</th>
                             <th class="w-1/8 px-4 py-4 text-left">種類</th>

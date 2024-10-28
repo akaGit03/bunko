@@ -7,7 +7,7 @@
     <div class="text-gray-700 py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <h2 class="py-4 pl-6 text-2xl font-semibold">
-                全 {{ count($books) }} 点
+                全 {{ count($books) }}点
             </h2>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="px-4 py-6">
