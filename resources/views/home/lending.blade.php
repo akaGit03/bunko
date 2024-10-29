@@ -29,12 +29,10 @@
                         <tbody>
                             @forelse ($currentLends as $book)
                                 <tr
-                                    class="hover:bg-custom-yellow w-full border-b transition duration-100">
-                                    <td class="hover:text-pink-400 px-4 py-4">
-                                        <a
-                                            href="{{ route("books.show", $book) }}">
-                                            {{ $book->title }}
-                                        </a>
+                                    onclick="window.location.href='{{ route('books.show', $book) }}'" 
+                                    class="hover:bg-custom-yellow hover:text-pink-500 w-full border-b transition duration-100 cursor-pointer">
+                                    <td class="px-4 py-4">
+                                        {{ $book->title }}
                                     </td>
                                     <td class="px-4 py-4">
                                         {{ $book->author }}
@@ -86,8 +84,9 @@
                         <tbody>
                             @forelse ($lendingHistory as $book)
                                 <tr
-                                    class="hover:bg-custom-yellow w-full border-b transition duration-100">
-                                    <td class="hover:text-pink-400 px-4 py-4">
+                                    onclick="window.location.href='{{ route("books.show", $book) }}'" 
+                                    class="hover:bg-custom-yellow hover:text-pink-500 w-full border-b transition duration-100 cursor-pointer">
+                                    <td class="px-4 py-4">
                                         {{ $book->title }}
                                     </td>
                                     <td class="px-4 py-4">

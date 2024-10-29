@@ -9,6 +9,8 @@
                 method="get">
                 <!-- <div class="mb-2 text-lg font-semibold text-center">本棚検索</div> -->
                 <dl class="mb-4">
+
+                    <!-- キーワードで検索 -->
                     <dt class="font-medium mb-1">キーワード</dt>
                     <dd class="mb-2">
                         <input
@@ -18,6 +20,8 @@
                             placeholder="タイトル・著者名"
                             value="{{ Request::get("keyword") }}" />
                     </dd>
+
+                    <!-- 持ち主で検索 -->
                     <dt class="font-medium mb-1">持ち主</dt>
                     <dd class="mb-2">
                         <select
@@ -33,13 +37,16 @@
                             @endforeach
                         </select>
                     </dd>
+
+                    <!-- 種類で検索 -->
                     <dt class="font-medium mb-1">種類</dt>
                     <dd class="mb-2">
                         <select
                             name="type_id"
                             class="bg-white w-full rounded border-gray-400 focus:ring-teal-500 px-4 py-2 focus:border-transparent focus:outline-none focus:ring-2">
+                            <!-- 選択肢をDBから作成 -->
                             <option value=""></option>
-                            @foreach (App\Models\Type::all() as $type)
+                            @foreach (App\Models\Type::all() as $type) 
                                 <option
                                     value="{{ $type->id }}"
                                     {{ Request::get("type_id") == $type->id ? " selected" : "" }}>
@@ -48,6 +55,8 @@
                             @endforeach
                         </select>
                     </dd>
+
+                    <!-- 在架状況で検索 -->
                     <dt class="font-medium mb-1">貸出可否</dt>
                     <dd class="mb-2">
                         <select
@@ -62,11 +71,13 @@
                             <option
                                 value="1"
                                 {{ Request::get("status") === "1" ? "selected" : "" }}>
-                                ×：貸出中
+                                × ：貸出中
                             </option>
                         </select>
                     </dd>
                 </dl>
+
+                <!-- 検索ボタン -->
                 <div class="mt-6 flex justify-center">
                     <button
                         type="submit"
@@ -91,15 +102,21 @@
             </form>
         </div>
 
-        <!-- 検索結果 -->
+        <!-- 検索結果の表示 -->
         <div class="w-full lg:w-3/4">
+
+            <!-- 検索結果数 -->
             <div
                 class="bg-white mb-4 flex items-center justify-between rounded p-4">
                 <div>検索結果：{{ $count ?? $books->total() }}件</div>
             </div>
+
+            <!-- ページネーション -->
             <div class="mb-2 mt-4">
                 {{ $books->links("pagination::tailwind") }}
             </div>
+
+            <!-- 検索結果の一覧 -->
             <div class="overflow-auto">
                 <table class="bg-white w-full table-auto rounded-md">
                     <thead class="border-pink-300 whitespace-nowrap border-b-2">
@@ -114,7 +131,8 @@
                     <tbody class="divide-gray-200 divide-y">
                         @foreach ($books as $book)
                             <tr
-                                class="hover:bg-custom-yellow transition duration-100">
+                                onclick="window.location.href='{{ route("books.show", $book) }}'" 
+                                class="hover:bg-custom-yellow hover:text-pink-500 transition duration-100 cursor-pointer">
                                 <td class="text-center">
                                     @if ($book->status)
                                         <span class="text-2xl">×</span>
@@ -124,10 +142,8 @@
                                         </span>
                                     @endif
                                 </td>
-                                <td class="hover:text-pink-400 p-4">
-                                    <a href="{{ route("books.show", $book) }}">
-                                        {{ $book->title }}
-                                    </a>
+                                <td class="p-4">
+                                    {{ $book->title }}
                                 </td>
                                 <td class="p-4">{{ $book->author }}</td>
                                 <td class="p-4">{{ $book->type->name }}</td>
@@ -137,6 +153,8 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- ページネーション -->
             <div class="mb-4 mt-2">
                 {{ $books->links("pagination::tailwind") }}
             </div>

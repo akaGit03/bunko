@@ -6,20 +6,21 @@
         <div class="flex justify-center">
             <a
                 class="bg-slate-400 text-white hover:bg-slate-600 focus:shadow-outline rounded px-4 py-2 font-bold shadow-sm focus:outline-none"
-                href="{{ url()->previous() }}">
+                href="{{ url()->previous() }}">  <!-- 遷移前のページに戻る -->
                 戻る
             </a>
         </div>
 
-        <!-- 本の詳細情報 -->
+        <!-- 図書情報 -->
         <div class="mx-auto max-w-7xl py-8 sm:px-6 lg:px-8">
             <h2
                 class="pb-8 pt-4 text-center text-3xl font-semibold md:text-4xl">
                 図書情報
             </h2>
+
             <div class="bg-white mb-4 flex justify-center rounded p-4">
                 <div class="w-[80%] px-4 py-6">
-                    <!-- レスポンシブなレイアウトのためのラッパー -->
+                    <!-- レスポンシブのためのラッパー（lgを境にレコードの並び方が変化） -->
                     <div class="flex flex-col lg:flex-row items-center">
                         <!-- 書影 -->
                         <div class="w-full lg:w-1/3 max-w-sm lg:max-w-lg border mx-6 h-auto">
@@ -47,7 +48,7 @@
                                 </tr>
                             </table>
 
-                            <!-- 持ち主のコメントテーブル -->
+                            <!-- 持ち主のコメント用テーブル -->
                             <table class="container mt-6 w-full border-collapse border">
                                 <tr class="md:text-lg">
                                     <th class="px-4 py-2 text-left">持ち主のコメント</th>
@@ -63,17 +64,17 @@
                         </div>
                     </div>
 
-                    <!-- 「借りる」ボタンと「返却」ボタン -->
+                    <!-- 「借りる」/「返却」ボタン（※ログインユーザーのみ） -->
                     <div class="mt-2 flex justify-center md:justify-center md:mt-4">
                         @auth
-                            @if ($book->isLent())
+                            @if ($book->isLent()) <!-- ユーザー自身が借りている場合 -->
                                 <form action="{{ route('books.returnBook', $book) }}" method="POST" onsubmit="return confirm('この本を返却しますか？')">
                                     @csrf
                                     <button class="bg-teal-500 text-white hover:bg-teal-600 rounded px-4 py-2 text-xl font-semibold shadow-sm" type="submit">
                                         返却する
                                     </button>
                                 </form>
-                            @elseif (! $book->status)
+                            @elseif (! $book->status) <!-- 本が在架の場合 -->
                                 <form action="{{ route('books.lendBook', $book) }}" method="POST" onsubmit="return confirm('この本を借りますか？')">
                                     @csrf
                                     <button class="bg-pink-400 text-white hover:bg-pink-500 rounded px-4 py-2 text-xl font-semibold shadow-sm" type="submit">
@@ -99,8 +100,9 @@
                 みんなのコメント
             </h2>
 
-            <!-- コメントフォーム -->
+            <!-- コメントフォーム（※ログインユーザーのみ） -->
             @auth
+                <!-- コメントフォームを表示するボタン -->
                 <div class="{{ $errors->any() ? 'hidden' : '' }} flex justify-center">
                     <button
                         class="bg-teal-500 text-white hover:bg-teal-600 mb-6 rounded px-4 py-2 font-semibold shadow-sm"
@@ -108,6 +110,8 @@
                         コメントする
                     </button>
                 </div>
+
+                <!-- コメント入力フォーム -->
                 <div class="{{ $errors->any() ? '' : 'hidden' }}" id="commentForm">
                     <div
                         class="bg-white mb-4 flex justify-center rounded p-4 shadow-md">
@@ -153,16 +157,19 @@
                     @forelse ($book->comments as $comment)
                         <table
                             class="border-slate-300 container mb-4 w-full border-collapse border">
+                            
+                            <!-- コメント内容 -->
                             <tr class="border-b text-left">
                                 <td class="border-2 p-4 text-lg md:text-xl">
                                     {{ $comment->body }}
                                 </td>
                             </tr>
+
+                            <!-- ユーザー名 -->
                             <tr class="border-slate-300">
                                 <td class="text-gray-500 px-4 py-2 md:text-lg">
                                     <div
                                         class="flex items-center justify-start">
-                                        <!-- ユーザー名 -->
                                         <span>
                                             {{ $comment->user->name ?? "削除されたユーザー" }}
                                              さん
@@ -188,7 +195,7 @@
                             </tr>
                         </table>
                     @empty
-                        <div>コメントはまだありません</div>
+                        <div class="md:text-lg">コメントはまだありません</div>
                     @endforelse
                 </div>
             </div>

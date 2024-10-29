@@ -82,7 +82,8 @@
                             </button>
                         </form>
                         <form
-                            action="{{ route("register") }}"
+                            onclick="alert('デモストレーションのため、この機能は利用できません。\n「ログイン」はゲストユーザーで可能です。\n\nゲストユーザーでログイン↓\nメールアドレス：guest@exmaple.com\nパスワード：guest')"
+                            action=""
                             method="get"
                             class="mt-2 lg:ml-2 lg:mt-0">
                             @csrf

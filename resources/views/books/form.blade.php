@@ -1,5 +1,7 @@
 <!-- 入力フォームのテンプレート -->
 @csrf
+
+<!-- バリデーションメッセージ -->
 <div class="mb-6 md:flex md:items-center">
     <div class="md:w-1/3">
     </div>
@@ -7,6 +9,8 @@
         @include("commons.errors")
     </div>
 </div>
+
+<!-- タイトルの入力欄 -->
 <div class="mb-6 md:flex md:items-center">
     <div class="md:w-1/3">
         <div
@@ -30,6 +34,7 @@
     </div>
 </div>
 
+<!-- 著者名の入力欄 -->
 <div class="mb-6 md:flex md:items-center">
     <div class="md:w-1/3">
         <div
@@ -53,6 +58,7 @@
     </div>
 </div>
 
+ <!-- 種類の入力欄 -->
 <div class="mb-6 md:flex md:items-center">
     <div class="md:w-1/3">
         <div
@@ -71,6 +77,7 @@
             class="bg-gray-200 border-gray-200 @error('type_id') border-orange-500 @else border-gray-200 @enderror focus:bg-white focus:ring-teal-500 block w-full appearance-none rounded border-2 px-4 py-2 pr-8 leading-tight shadow focus:border-transparent focus:outline-none focus:ring-2"
             id="inline-type"
             name="type_id">
+            <!-- 選択肢をDBから作成 -->
             <option class="bg-white" value=""></option>
             @foreach (App\Models\Type::all() as $type)
                 <option
@@ -84,6 +91,7 @@
     </div>
 </div>
 
+ <!-- コメントの入力欄 -->
 <div class="mb-6 md:flex md:items-center">
     <div class="md:w-1/3">
         <div

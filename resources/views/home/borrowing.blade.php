@@ -30,12 +30,10 @@
                         <tbody>
                             @forelse ($currentBorrows as $borrowing)
                                 <tr
-                                    class="hover:bg-custom-yellow w-full border-b transition duration-100">
-                                    <td class="hover:text-pink-400 px-4 py-4">
-                                        <a
-                                            href="{{ route("books.show", $borrowing->book) }}">
-                                            {{ $borrowing->book->title }}
-                                        </a>
+                                    onclick="window.location.href='{{ route('books.show', $borrowing->book) }}'" 
+                                    class="hover:bg-custom-yellow hover:text-pink-500 w-full border-b transition duration-100 cursor-pointer">
+                                    <td class="px-4 py-4">
+                                        {{ $borrowing->book->title }}
                                     </td>
                                     <td class="px-4 py-4">
                                         {{ $borrowing->book->author }}
@@ -48,12 +46,13 @@
                                     </td>
                                     <td class="px-4 py-4">
                                         <form
-                                            action="{{ route("books.returnBook", $borrowing->book->id) }}"
+                                            action="{{ route('books.returnBook', $borrowing->book->id) }}"
                                             method="POST"
                                             onsubmit="return confirm('この本を返却しますか？')">
                                             @csrf
                                             <button
                                                 type="submit"
+                                                onclick="event.stopPropagation()"
                                                 class="bg-teal-500 text-white hover:bg-teal-600 rounded px-4 py-2 font-semibold shadow-sm">
                                                 返却する
                                             </button>
@@ -100,12 +99,10 @@
                         <tbody>
                             @forelse ($borrowingHistory as $borrowing)
                                 <tr
-                                    class="hover:bg-custom-yellow w-full border-b transition duration-100">
-                                    <td class="hover:text-pink-400 px-4 py-4">
-                                        <a
-                                            href="{{ route("books.show", $borrowing->book) }}">
-                                            {{ $borrowing->book->title }}
-                                        </a>
+                                    onclick="window.location.href='{{ route('books.show', $borrowing->book) }}'"
+                                    class="hover:bg-custom-yellow hover:text-pink-500 w-full border-b transition duration-100 cursor-pointer">
+                                    <td class="px-4 py-4">
+                                        {{ $borrowing->book->title }}
                                     </td>
                                     <td class="px-4 py-4">
                                         {{ $borrowing->book->author }}

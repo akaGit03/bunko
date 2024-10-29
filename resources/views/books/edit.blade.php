@@ -13,11 +13,11 @@
                 </button>
             </div>
             -->
-
             <h2
                 class="pb-8 pt-4 text-center text-2xl font-semibold md:text-4xl">
                 編集
             </h2>
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex justify-center py-10">
                     <form
@@ -26,7 +26,9 @@
                         method="POST"
                         onsubmit="return confirm('これで更新しますか？')">
                         @method("patch")
+
                         @include("books.form")
+
                         <div class="flex justify-center">
                             <button
                                 type="submit"

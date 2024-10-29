@@ -10,13 +10,16 @@
                 class="pb-8 pt-4 text-center text-2xl font-semibold md:text-3xl">
                 新規登録
             </h2>
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex justify-center py-10">
                     <form
                         class="w-full max-w-md md:max-w-xl"
                         action="{{ route("books.store") }}"
                         method="POST">
+
                         @include("books.form")
+                        
                         <div class="flex justify-center">
                             <button
                                 type="submit"

@@ -32,7 +32,7 @@
                     <a
                         href="{{ route("books.index") }}"
                         class="text-slate-700 bg-yellow-400 hover:bg-yellow-500 mb-6 w-2/5 px-6 py-4 text-lg shadow lg:w-2/3 lg:text-xl">
-                        蔵書一覧
+                        本棚検索
                     </a>
                     @if (Route::has("login"))
                         @auth
@@ -50,7 +50,8 @@
 
                             @if (Route::has("register"))
                                 <a
-                                    href="{{ route("register") }}"
+                                    onclick="alert('デモストレーションのため、この機能は利用できません。\n「本棚検索」はログインなしで利用できます。\n「ログイン」はゲストユーザーで可能です。\n\nゲストユーザーでログイン↓\nメールアドレス：guest@exmaple.com\nパスワード：guest')"
+                                    href=""
                                     class="text-white bg-teal-500 hover:bg-teal-600 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white mb-6 w-2/5 px-6 py-4 text-lg shadow ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] lg:w-2/3 lg:text-xl">
                                     会員登録
                                 </a>
