@@ -34,7 +34,7 @@
         style="display: none"
         @click="open = false">
         <div
-            class="ring-black {{ $contentClasses }} rounded-md ring-1 ring-opacity-5">
+            class="{{ $contentClasses }} rounded-md ring-1 ring-black ring-opacity-5">
             {{ $content }}
         </div>
     </div>

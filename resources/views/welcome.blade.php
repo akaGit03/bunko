@@ -11,7 +11,14 @@
         <link
             href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap"
             rel="stylesheet" />
-        
+
+        <!-- Font:Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet" />
+
         <!-- Font:Sawarabi Mincho -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,35 +30,46 @@
         @vite(["resources/css/app.css", "resources/js/app.js"])
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="dark:bg-black dark:text-white/50 font-body antialiased">
+
+    <body class="font-body antialiased dark:bg-black dark:text-white/50">
         <div
-            class="bg-stone-100 text-black/50 dark:bg-black dark:text-white/50 flex h-screen items-center justify-center">
+            class="flex h-screen items-center justify-center bg-stone-100 text-black/50 dark:bg-black dark:text-white/50">
             <main class="text-center">
-                <h1 class="font-title text-teal-400 mb-8 p-4 text-8xl">川本文庫</h1>
+                <h1 class="mb-8 p-4 font-title text-8xl text-teal-400">
+                    川本文庫
+                </h1>
+
+                <!-- ログインの有無により配置するボタンを変更-->
                 <nav class="flex flex-col items-center">
+                    <!-- 「本棚検索」ボタン（ログインの有無に関係なく配置 -->
                     <a
-                        href="{{ route("books.index") }}"
-                        class="text-slate-700 bg-yellow-400 hover:bg-yellow-500 mb-6 w-2/5 px-6 py-4 text-lg shadow lg:w-2/3 lg:text-xl">
-                        蔵書一覧
+                        href="{{ route('books.index') }}"
+                        class="mb-6 w-2/5 bg-yellow-400 px-6 py-4 text-lg text-slate-700 shadow hover:bg-yellow-500 lg:w-2/3 lg:text-xl">
+                        本棚検索
                     </a>
+
                     @if (Route::has("login"))
                         @auth
+                            <!-- 「マイページ」ボタン -->
                             <a
-                                href="{{ url("/dashboard") }}"
-                                class="text-white bg-slate-400 hover:bg-slate-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white mb-6 w-2/5 px-6 py-4 text-lg shadow ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] lg:w-2/3 lg:text-xl">
+                                href="{{ url('/dashboard') }}"
+                                class="mb-6 w-2/5 bg-slate-400 px-6 py-4 text-lg text-white shadow ring-1 ring-transparent transition hover:bg-slate-500 focus:outline-none focus-visible:ring-[#FF2D20] lg:w-2/3 lg:text-xl dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                 マイページ
                             </a>
                         @else
+                            <!-- 「ログイン」ボタン -->
                             <a
-                                href="{{ route("login") }}"
-                                class="text-white bg-pink-400 hover:bg-pink-500 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white mb-6 w-2/5 px-6 py-4 text-lg shadow ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] lg:w-2/3 lg:text-xl">
+                                href="{{ route('login') }}"
+                                class="mb-6 w-2/5 bg-pink-400 px-6 py-4 text-lg text-white shadow ring-1 ring-transparent transition hover:bg-pink-500 focus:outline-none focus-visible:ring-[#FF2D20] lg:w-2/3 lg:text-xl dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                 ログイン
                             </a>
 
+                            <!-- 「会員登録」ボタン（デモンストレーションにつき、この機能は解除） -->
                             @if (Route::has("register"))
                                 <a
-                                    href="{{ route("register") }}"
-                                    class="text-white bg-teal-500 hover:bg-teal-600 dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white mb-6 w-2/5 px-6 py-4 text-lg shadow ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] lg:w-2/3 lg:text-xl">
+                                    onclick="alert('デモストレーションのため、現在この機能は利用できません。\n「本棚検索」はログインなしで利用できます。\n「ログイン」はゲストユーザーで可能です。\n\nゲストユーザーでログイン↓\nメールアドレス：guest@exmaple.com\nパスワード：guest')"
+                                    href=""
+                                    class="mb-6 w-2/5 bg-teal-500 px-6 py-4 text-lg text-white shadow ring-1 ring-transparent transition hover:bg-teal-600 focus:outline-none focus-visible:ring-[#FF2D20] lg:w-2/3 lg:text-xl dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                     会員登録
                                 </a>
                             @endif

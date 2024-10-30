@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\HomeController;
 use \App\Http\Controllers\BookController;
 use \App\Http\Controllers\LendingController;
@@ -30,6 +31,7 @@ Route::post('/books/{book}/return',[LendingController::class, 'returnBook'])->na
 /** コメント処理 */
 Route::post('/books/comment/store',[CommentController::class, 'store'])->name('comment.store');
 Route::delete('/books/comment/{comment}/delete',[CommentController::class, 'destroy'])->name('comment.destroy');
+Route::delete('/books/comment/{comment}/delete',[CommentController::class, 'destroy'])->name('comment.destroy');
 
 /** 要認証ルーティング*/
 Route::get('/dashboard', function () {
@@ -47,6 +49,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // 画像ファイル管理（※試験運用）
+    Route::get('/image/upload', [ImageController::class, 'showUploadForm'])->name('image.uploadForm');
+    Route::post('/image/upload', [ImageController::class, 'upload'])->name('image.upload');
 });
 
 require __DIR__.'/auth.php';

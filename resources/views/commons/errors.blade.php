@@ -1,6 +1,6 @@
 <!-- エラーメッセージのテンプレート -->
 @if ($errors->any())
-    <ul class="alert text-orange-600 font-semibold">
+    <ul class="alert font-semibold text-orange-600">
         @foreach ($errors->all() as $error)
             <li>※ {{ $error }}</li>
         @endforeach

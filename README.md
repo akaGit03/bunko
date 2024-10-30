@@ -1,66 +1,185 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div id="top"></div>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+## 主な使用技術
+
+<!-- シールド一覧 -->
+<p style="display: inline">
+  <!-- バックエンドのフレームワーク一覧 -->
+  <img src="https://img.shields.io/badge/-Laravel-E74430.svg?logo=laravel&style=for-the-badge">
+  <!-- バックエンドの言語一覧 -->
+  <img src="https://img.shields.io/badge/-Php-777BB4.svg?logo=php&style=for-the-badge">
+  <!-- フロントエンドのフレームワーク一覧 -->
+  <img src="https://img.shields.io/badge/-TailwindCSS-000000.svg?logo=tailwindcss&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-Javascript-F7DF1E.svg?logo=javascript&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-Node.js-000000.svg?logo=node.js&style=for-the-badge">
+  <!-- ミドルウェア一覧 -->
+  <img src="https://img.shields.io/badge/-Mysql-4479A1.svg?logo=mysql&style=for-the-badge">
+  <!-- インフラ一覧 -->
+  <img src="https://img.shields.io/badge/-Git-F05032.svg?logo=git&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-Github-181717.svg?logo=github&style=for-the-badge">
+  <img src="https://img.shields.io/badge/-Amazon%20aws-232F3E.svg?logo=amazon-aws&style=for-the-badge">
+  <!-- IDE一覧 -->
+  <img src="https://img.shields.io/badge/-Visualstudiocode-007ACC.svg?logo=visualstudiocode&style=for-the-badge">
 </p>
 
-## About Laravel
+## はじめに
+この度はご訪問いただき、誠にありがとうございます。<br />
+こちらは、わたしがWebエンジニアへ転職を目指す上で作成した、自作アプリのリポジトリです。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+実際に使用してみていただくことも可能です。<br />
+下記「[使い方](#使い方)」をご参照の上、是非お試しください。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 目次
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. [アプリについて](#アプリについて)
+2. [使い方](#使い方)
+3. [使用技術](#使用技術)
+4. [基本設計](#基本設計)
+5. [振り返り](#振り返り)
+6. [このアプリを作成した背景](#このアプリを作成した背景)
+7. [今後について](#今後について)
 
-## Learning Laravel
+<!-- アプリ名を記載 -->
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## アプリについて
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### アプリ名
+共有文庫
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### URL
+http://
 
-## Laravel Sponsors
+### アプリの概要
+複数人のユーザー間で本の貸し借りを管理したり、その本の感想を共有したりできるアプリです。<br />
+1人で使用する場合も、蔵書目録として活用できます。
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+（ごく私的な目的で作成したアプリのため、用途の意図がわかりにくいかもしれません。もしお時間がございましたら、下記「[このアプリを作成した背景](#このアプリを作成した背景)」をお読みいただけますと幸いです。）
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 機能一覧
+- 本の登録・管理機能（CRUD）
+- 本の貸し借り管理機能
+- コメント投稿機能
+- 蔵書の検索機能
+- レスポンシブデザイン
+- 認証機能（Breeze, Filament）
 
-## Contributing
+<p align="right">(<a href="#top">トップへ</a>)</p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 使い方
+上記の[URL](#URL)にて、「本棚検索」はログインせずにご利用いただけます。<br />
+また、蔵書の個々の詳細ページ（検索結果の各項目にカーソルを合わせ、クリックしていただくと表示される「図書情報」）も、ログインせずにご覧いただけます。
 
-## Code of Conduct
+本の登録や貸し借り機能、コメント機能もお試しいただけます。<br />
+ゲスト用のアカウント（ゲストユーザー）を用意しておりますので、こちらのアカウントにログインの上、お試しください。<br />
+ゲストユーザーのログイン時は、下記をご参照ください。<br />
+| ログイン情報     |                    |
+| :----------    | :----------        |
+| メールアドレス：  | guest@exmaple.com  |
+| パスワード：     | guest              |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<p align="right">(<a href="#top">トップへ</a>)</p>
 
-## Security Vulnerabilities
+## 使用技術
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ローカルにて、MAMP環境で開発しました。
 
-## License
+| フロントエンド     　　　 
+| --------------------- | 
+| Tailwind CSS 3.1.0    | 
+| Javascript            |
+| Node.js 22.2.0        |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+ バックエンド     　　　   |
+| --------------------- |
+| PHP 8.2.0             |
+| Laravel 11.23.5       |
+
+ミドルウェア    　　　     |
+| --------------------- |
+| MySQL 5.7.39          |
+
+インフラ                 |
+| --------------------- |
+| Git/Github            |
+| AWS EC2(Amazon Linux 2023)|
+| Apache                |
+
+その他                   |
+| --------------------- |
+| Visual Studio Code    |
+| Google Sheets         |
+| Google Document       |
+| Mac OS                |
+
+<p align="right">(<a href="#top">トップへ</a>)</p>
+
+## 基本設計
+
+### ER図
+![ER図](https://github.com/user-attachments/assets/502908d1-e87b-4047-a3da-6761eef1db16)
+
+### テーブル定義
+#### typesテーブル
+![typesテーブル](https://github.com/user-attachments/assets/44c1e4f3-69fe-4942-834a-0f86fa9e71d2)
+#### usersテーブル
+![usersテーブル](https://github.com/user-attachments/assets/ba706a89-be7b-460f-a8d4-342a458e2de1)
+####　booksテーブル
+![booksテーブル](https://github.com/user-attachments/assets/58f288dd-e9fd-4052-9cf6-5b4d54ba2b75)
+#### lendingsテーブル
+![lenfingsテーブル](https://github.com/user-attachments/assets/e97992c8-5a21-4057-82e4-3bb214e46d90)
+#### commentsテーブル
+![commentsテーブル](https://github.com/user-attachments/assets/141ad3bd-cfbc-4cdd-83c7-245b8c051ca0)
+
+<p align="right">(<a href="#top">トップへ</a>)</p>
+
+## 振り返り
+### 工夫した点
+
+### 苦労した点
+
+<p align="right">(<a href="#top">トップへ</a>)</p>
+
+## このアプリを作成した背景
+### 要旨
+以前、友人・知人間で、直接顔を合わせなくても本の貸し借りができる「共有本棚」を設置・運用したことがありました。<br />
+その際、本棚に置いている各々の本と、貸し借りの状況を把握できた方が良いだろうと思い、それに適したアプリがほしい（作れるものなら自分で作れたらよかった）と思ったことがありました。<br />
+**今回作成したアプリは、その、当時自分が「ほしい」と思っていたアプリです。**
+### 詳述
+上述の「共有本棚」の要旨は次のとおりです。
+1. **本棚を1つ用意し、各々、人に貸したい・貸しても構わないといった本などを置いておく。またその本棚にあるものは、各々借りてよい**
+2. **貸し手と借り手は、直接会わなくても貸し借りができる。好きなときに好きに借りられる**
+
+発想の元は、ロンドンやベルリンにあると耳にした、使われなくなった公衆電話ボックスの利用方法でした。<br />
+「要らなくなった本を電話ボックスに置いておき、その代わり、その電話ボックスにほしい本があれば持っていってもよい」ーー「住民間で要らなくなった本を交換する場」として利用されているとのことでした。
+
+#### 共有本棚の発案
+わたしは5年ほど前、新型コロナウイルスのパンデミックがはじまる直前のころ、長野県の山間部に移住しました。<br />
+この地域には図書館や書店がなく、最寄りのそれらを訪ねるには、車で40分ほどの市街地まで行かなければなりません（そしていずれも小規模なものです）。<br />
+一方で、移住してから知り合った地域の方々の中には、日頃から本に親しんでいたり、図書館や書店を求めていたりする方が少なくないように見受けられました。
+
+長引く行動制限下で、図書館や書店のような「空間」や、そうした空間で起こる「（本との）偶然の出会い」に対する”飢え”を覚えていた中、上述の公衆電話ボックスの話を思い出しました。<br />
+地域の友人・知人それぞれの志向・関心が一所に集う様子はおもしろいかもしれないという見込みもあり、2年半ほど前、友人2名に声をかけてみて、「共有本棚」を設置しました。
+
+#### 本棚の設置
+本棚は、友人宅の玄関の一隅を借り、そこに設置しました。<br />
+わたしたちの場合は以下の2点を鑑み、メンバーシップ制としました。
+1. 本は貸し出されたものである（持ち主あり）
+2. 人の家のスペースを借りている
+
+セキュリティ対策として、ナンバーロック式の頑丈なキーボックスを用意し、それに本棚を設置した友人宅の合鍵を収納。キーボックスは友人宅の敷地内に設置し、メンバー間に限って、キーボックスの場所と解除ナンバーを共有しました。
+
+1ヶ月ほど試験運用した後、他の顔見知りにも声をかけつつ、最終的にはメンバーは20人ほどとなり、1年ほど運用しました。
+
+#### アプリ作成
+この本棚を準備・運用する中で、本棚にあるものや貸し借りの状況を把握する必要がありました。本棚のものには持ち主があり、あくまで貸与されているものだからです。
+実際には専用ファイルや用紙など文房具を用いて管理しましたが、当時、この管理をデジタル化してもいい、適したアプリはないか、あるいは自分で作れたらいいのに…などと考えたりもしました。
+
+わたしは最近、職業訓練校の「プログラマー・システムエンジニア養成科」を修了しました。今の自分なら、当時の自分の気持ちに応えられるのではないかと思い、訓練で学んだ技術の復習も兼ね、このアプリを作成することにしました。
+
+<p align="right">(<a href="#top">トップへ</a>)</p>
+
+## 今後について
+### 課題
+
+### アプリの改善点

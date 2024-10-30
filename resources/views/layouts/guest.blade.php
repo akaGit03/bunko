@@ -1,3 +1,5 @@
+<!-- 未使用 -->
+
 <!DOCTYPE html>
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
@@ -16,20 +18,19 @@
         <!-- Scripts -->
         @vite(["resources/css/app.css", "resources/js/app.js"])
     </head>
-    <body class="text-gray-900 font-sans antialiased">
+    <body class="font-sans text-gray-900 antialiased">
         <div
-            class="bg-gray-100 flex min-h-screen flex-col items-center pt-6 sm:justify-center sm:pt-0">
+            class="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0">
             <!--
             <div>
                 <a href="/">
-                    <x-application-logo
-                        class="text-gray-500 h-20 w-20 fill-current" />
+                    <x-application-logo class="text-gray-500 h-20 w-20 fill-current"  />
                 </a>
             </div>
             -->
 
             <div
-                class="bg-white mt-6 w-full overflow-hidden px-6 py-6 shadow-md sm:max-w-md sm:rounded-lg">
+                class="mt-6 w-full overflow-hidden bg-white px-6 py-6 shadow-md sm:max-w-md sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>
