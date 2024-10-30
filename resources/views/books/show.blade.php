@@ -1,7 +1,6 @@
 @extends("layouts.app-bunko")
 @section("content")
     
-
     <div class="text-gray-700 py-12">
         <div class="flex justify-center">
             <a
@@ -39,7 +38,7 @@
                                     <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell">{{ $book->author }}</td>
                                 </tr>
                                 <tr class="border-b md:text-lg lg:table-row">
-                                    <th class="block w-1/3 p-4 lg:py-6 text-left md:table-cell">種類：</th>
+                                    <th class="block w-1/3 p-4 lg:py-6 text-left md:table-cell">分類：</th>
                                     <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell">{{ $book->type->name }}</td>
                                 </tr>
                                 <tr class="border-b md:text-lg lg:table-row">
@@ -91,7 +90,6 @@
                 </div>
             </div>
 
-
     <!-- コメント欄 -->
     <div class="text-gray-700 py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -116,14 +114,17 @@
                     <div
                         class="bg-white mb-4 flex justify-center rounded p-4 shadow-md">
                         <div class="flex flex-col justify-center py-6">
+                            <!-- エラーメッセージ -->
                             <div class="mb-6">
                                 @include("commons.errors")
                             </div>
+
                             <form
                                 method="POST"
-                                action="{{ route("comment.store") }}"
+                                action="{{ route('comment.store') }}"
                                 onsubmit="return confirm('これでコメントしますか？（後から変更できません）')">
                                 @csrf
+
                                 <input
                                     type="hidden"
                                     name="book_id"
@@ -138,6 +139,7 @@
                                         placeholder="コメントを255文字以内で入力してください">{{ old("body") }}</textarea>
                                     <p class="@error('comment') text-orange-600 @enderror" id="char-count">0/255 文字</p>
                                 </div>
+
                                 <div
                                     class="form-group mt-4 flex justify-center">
                                     <button
@@ -202,7 +204,9 @@
         </div>
     </div>
 
+    <!-- コメント入力フォームの開閉-->
     <script src="{{ asset('js/commentToggle.js') }}"></script>
+    <!-- コメント入力フォームのバリデーション-->
     <script src="{{ asset('js/commentForm.js') }}"></script>
 
 @endsection

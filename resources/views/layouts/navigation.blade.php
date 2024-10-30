@@ -1,3 +1,5 @@
+<!-- ナビゲーションリンクのCSS等の管理: resources/views/components/nav-link.blade.php -->
+
 <nav x-data="{ open: false }" class="bg-white border-pink-300 border-b-2">
     <!-- ナビゲーションメニュー -->
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -74,10 +76,11 @@
                                 <path
                                     d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="12" cy="7" r="4"></circle>
-                            </svg>    
+                            </svg> 
                             <!-- 
                                 {{ Auth::user()->name }}</div>
                             -->
+
                             <div class="ms-1">
                                 <svg
                                     class="h-4 w-4 fill-current"
@@ -93,12 +96,14 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <!-- デモンストレーションにつき処理を解除：本来 → :href="route('profile.edit')"-->
+                        <x-dropdown-link
+                            onclick="alert('デモストレーションのため、現在この機能は利用できません。')">
                             {{ __("Profile") }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route("logout") }}">
+                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <x-dropdown-link
@@ -112,7 +117,7 @@
                 </x-dropdown>
             </div>
 
-            <!-- Hamburger -->
+            <!-- ハンバーガーメニュー -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button
                     @click="open = ! open"
@@ -154,6 +159,7 @@
 
         <!-- Responsive Settings Options -->
         <div class="border-pink-300 border-t-2 pb-1 pt-4">
+            <!-- ユーザー情報 -->
             <div class="px-4">
                 <div class="text-teal-500 text-base font-medium">
                     {{ Auth::user()->name }}
@@ -181,14 +187,16 @@
                     {{ __("本の登録") }}
                 </x-responsive-nav-link>
 
+                <!-- アカウント管理 -->
+                <!-- デモンストレーションにつき処理を解除：本来 → :href="route('profile.edit')"-->
                 <x-responsive-nav-link
-                    :href="route('profile.edit')"
+                    onclick="alert('デモストレーションのため、現在この機能は利用できません。')"
                     class="text-sm">
                     {{ __("Profile") }}
                 </x-responsive-nav-link>
 
-                <!-- アカウント管理 -->
-                <form method="POST" action="{{ route("logout") }}">
+                <!-- ログアウト -->
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
                     <x-responsive-nav-link

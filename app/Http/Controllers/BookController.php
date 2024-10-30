@@ -126,7 +126,7 @@ class BookController extends Controller
         // 検索ヒット数
         $count = $query->count();
         
-        $books = $query->paginate(30);
+        $books = $query->paginate(30)->withQueryString();
 
         return view('books.index', compact('books', 'count'));
     }

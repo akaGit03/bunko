@@ -4,12 +4,13 @@
     </x-slot>
 
     <!-- 貸出中の一覧 -->
-    <div class="text-gray-700 py-12">
+    <div class="py-12 text-gray-700">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <h2 class="py-4 pl-6 text-2xl font-semibold">
-                貸出中 : {{ count($currentLends) }}点
+                貸出中 : {{ count($currentLends) }} 点
             </h2>
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6">
                     <table class="container w-full">
                         <thead class="whitespace-nowrap">
@@ -26,11 +27,12 @@
                                 </th>
                             </tr>
                         </thead>
+
                         <tbody>
                             @forelse ($currentLends as $book)
                                 <tr
-                                    onclick="window.location.href='{{ route('books.show', $book) }}'" 
-                                    class="hover:bg-custom-yellow hover:text-pink-500 w-full border-b transition duration-100 cursor-pointer">
+                                    onclick="window.location.href='{{ route('books.show', $book) }}'"
+                                    class="w-full cursor-pointer border-b transition duration-100 hover:bg-custom-yellow hover:text-pink-500">
                                     <td class="px-4 py-4">
                                         {{ $book->title }}
                                     </td>
@@ -61,8 +63,9 @@
         <!-- 貸出履歴 -->
         <div class="mx-auto max-w-7xl pt-10 sm:px-6 lg:px-8">
             <h2 class="py-4 pl-6 text-2xl font-semibold">貸出履歴</h2>
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="text-gray-900 p-6">
+
+            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
                     <table class="container w-full">
                         <thead class="whitespace-nowrap">
                             <tr class="md:text-lg">
@@ -81,11 +84,12 @@
                                 </th>
                             </tr>
                         </thead>
+
                         <tbody>
                             @forelse ($lendingHistory as $book)
                                 <tr
-                                    onclick="window.location.href='{{ route("books.show", $book) }}'" 
-                                    class="hover:bg-custom-yellow hover:text-pink-500 w-full border-b transition duration-100 cursor-pointer">
+                                    onclick="window.location.href='{{ route('books.show', $book) }}'"
+                                    class="w-full cursor-pointer border-b transition duration-100 hover:bg-custom-yellow hover:text-pink-500">
                                     <td class="px-4 py-4">
                                         {{ $book->title }}
                                     </td>

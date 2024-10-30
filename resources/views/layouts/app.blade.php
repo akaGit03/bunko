@@ -12,7 +12,7 @@
         <link
             href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap"
             rel="stylesheet" />
-            
+
         <!-- Font:Roboto -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,33 +31,35 @@
         @vite(["resources/css/app.css", "resources/js/app.js"])
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
+
     <body class="font-body antialiased">
-        <div class="bg-stone-100 min-h-screen">
+        <div class="min-h-screen bg-stone-100">
             @include("layouts.navigation")
 
-            <!-- Page Heading -->
+            <!-- ヘッダー -->
             @isset($header)
                 <header class="bg-white">
                     <div
                         class="mx-auto max-w-7xl px-4 pb-6 pt-8 sm:px-6 lg:px-8">
                         <h2
-                            class="font-title text-teal-500 pl-4 text-center text-4xl font-semibold leading-tight md:text-6xl lg:text-left">
+                            class="pl-4 text-center font-title text-4xl font-semibold leading-tight text-teal-500 md:text-6xl lg:text-left">
                             {{ $header }}
                         </h2>
                     </div>
                 </header>
             @endisset
 
-            <!-- Page Content -->
+            <!-- メイン -->
             <main class="font-body">
                 <!-- アラート表示 -->
                 @if (session("success"))
                     <div
-                        class="bg-custom-yellow text-gray-600 mb-4 py-6 text-center text-xl shadow-sm">
+                        class="mb-4 bg-custom-yellow py-6 text-center text-xl text-gray-600 shadow-sm">
                         {{ session("success") }}
                     </div>
                 @endif
 
+                <!-- コンテンツ -->
                 {{ $slot }}
             </main>
         </div>

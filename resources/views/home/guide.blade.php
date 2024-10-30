@@ -1,9 +1,10 @@
+<!-- 準備中 -->
+
 <x-app-layout>
     <x-slot name="header">
         {{ __("利用案内") }}
     </x-slot>
 
-    
     <div class="container mx-auto">
         <p>コンテンツ領域</p>
     </div>

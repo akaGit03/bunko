@@ -33,7 +33,9 @@
         @vite(["resources/css/app.css", "resources/js/app.js"])
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="font-body">
+
+    <body class="font-body antialiased">
+        <!-- ヘッダー -->
         <header class="bg-white">
             <div
                 class="container mx-auto flex items-center justify-between px-2 pb-2 pt-4">
@@ -45,9 +47,12 @@
                     <span class="text-teal-500 mr-2 sm:text-lg">
                         ようこそ {{ Auth::user()->name ?? "ゲスト" }} さん
                     </span>
+
+                    <!-- ログインの有無により配置するボタンを変更-->
                     @auth
+                        <!-- 「マイページ」ボタン-->
                         <form
-                            action="{{ route("home.borrows") }}"
+                            action="{{ route('home.borrows') }}"
                             method="get"
                             class="mt-2 lg:ml-2 lg:mt-0">
                             @csrf
@@ -57,9 +62,11 @@
                                 マイページ
                             </button>
                         </form>
+
+                        <!-- 「ログアウト」ボタン -->
                         <form
                             onsubmit="return confirm('ログアウトしますか？')"
-                            action="{{ route("logout") }}"
+                            action="{{ route('logout') }}"
                             method="post"
                             class="mt-2 lg:ml-2 lg:mt-0">
                             @csrf
@@ -70,8 +77,9 @@
                             </button>
                         </form>
                     @else
+                        <!-- 「ログイン」ボタン -->
                         <form
-                            action="{{ route("login") }}"
+                            action="{{ route('login') }}"
                             method="get"
                             class="mt-2 lg:ml-2 lg:mt-0">
                             @csrf
@@ -81,8 +89,10 @@
                                 ログイン
                             </button>
                         </form>
+
+                        <!-- 「会員登録」ボタン（デモンストレーションにつき、この機能は解除） -->
                         <form
-                            onclick="alert('デモストレーションのため、この機能は利用できません。\n「ログイン」はゲストユーザーで可能です。\n\nゲストユーザーでログイン↓\nメールアドレス：guest@exmaple.com\nパスワード：guest')"
+                            onclick="alert('デモストレーションのため、現在この機能は利用できません。\n「ログイン」はゲストユーザーで可能です。\n\nゲストユーザーでログイン↓\nメールアドレス：guest@exmaple.com\nパスワード：guest')"
                             action=""
                             method="get"
                             class="mt-2 lg:ml-2 lg:mt-0">
@@ -97,6 +107,8 @@
                 </div>
             </div>
         </header>
+
+        <!-- メイン -->
         <main class="bg-stone-100">
             <!-- アラート表示 -->
             @if (session("success"))
@@ -104,12 +116,13 @@
                     {{ session("success") }}
                 </div>
                 @elseif ($errors->any())
-                <div class="bg-orange-500 text-white mb-4 py-6 text-center text-xl shadow-sm">
+                <div class="bg-orange-300 text-orange-700 mb-4 py-6 text-center text-xl shadow-sm">
                     <p>【！！】コメントエラーです。コメント入力欄をご確認ください。</p>
                 </div>
                 </ul>
             @endif
 
+            <!-- コンテンツ -->
             <div class="container mx-auto py-8">
                 @yield("content")
             </div>
