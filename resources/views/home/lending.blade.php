@@ -4,16 +4,16 @@
     </x-slot>
 
     <!-- 貸出中の一覧 -->
-    <div class="py-12 text-gray-700">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <h2 class="py-4 pl-6 text-2xl font-semibold">
-                貸出中 : {{ count($currentLends) }} 点
+    <div class="py-12">
+        <div class="mx-auto max-w-7xl px-4 md:px-8">
+            <h2 class="py-4 px-8 lg:px-6 text-xl sm:text-2xl font-semibold">
+                貸出中：{{ count($currentLends) }} 点
             </h2>
 
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6">
-                    <table class="container w-full">
-                        <thead class="whitespace-nowrap">
+            <div class="overflow-auto bg-white shadow-sm rounded">
+                <div class="p-4 md:p-6">
+                    <table class="container w-full whitespace-nowrap md:whitespace-normal">
+                        <thead class="">
                             <tr class="md:text-lg">
                                 <th class="w-2/5 px-4 py-4 text-left">
                                     タイトル
@@ -61,13 +61,13 @@
         <br />
 
         <!-- 貸出履歴 -->
-        <div class="mx-auto max-w-7xl pt-10 sm:px-6 lg:px-8">
-            <h2 class="py-4 pl-6 text-2xl font-semibold">貸出履歴</h2>
+        <div class="mx-auto max-w-7xl pt-10 px-4 md:px-8">
+            <h2 class="py-4 px-8 lg:px-6 text-xl sm:text-2xl font-semibold">貸出履歴</h2>
 
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <table class="container w-full">
-                        <thead class="whitespace-nowrap">
+            <div class="overflow-auto bg-white shadow-sm sm:rounded-lg">
+                <div class="p-4 md:p-6">
+                    <table class="container w-full whitespace-nowrap md:whitespace-normal">
+                        <thead class="">
                             <tr class="md:text-lg">
                                 <th class="w-2/6 px-4 py-4 text-left">
                                     タイトル

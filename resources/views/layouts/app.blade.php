@@ -32,7 +32,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body class="font-body antialiased">
+    <body class="font-body antialiased text-gray-700">
         <div class="min-h-screen bg-stone-100">
             @include("layouts.navigation")
 

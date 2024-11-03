@@ -18,7 +18,7 @@
             </h2>
 
             <div class="bg-white mb-4 flex justify-center rounded p-4">
-                <div class="w-[80%] px-4 py-6">
+                <div class="w-[90%] lg:w-[80%] px-4 py-6">
                     <!-- レスポンシブのためのラッパー（lgを境にレコードの並び方が変化） -->
                     <div class="flex flex-col lg:flex-row items-center">
                         <!-- 書影 -->
@@ -30,20 +30,20 @@
                         <div class="w-full lg:w-2/3 my-6">
                             <table class="container w-full border-collapse border lg:table">
                                 <tr class="border-b md:text-lg lg:table-row">
-                                    <th class="block w-1/3 p-4 lg:py-6 text-left md:table-cell">タイトル：</th>
-                                    <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell">{{ $book->title }}</td>
+                                    <th class="block p-4 lg:py-6 text-left md:table-cell md:w-1/3">タイトル：</th>
+                                    <td class="block px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell md:w-2/3">{{ $book->title }}</td>
                                 </tr>
                                 <tr class="border-b md:text-lg lg:table-row">
-                                    <th class="block w-1/3 p-4 lg:py-6 text-left md:table-cell">著者：</th>
-                                    <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell">{{ $book->author }}</td>
+                                    <th class="block p-4 lg:py-6 text-left md:table-cell md:w-1/3">著者：</th>
+                                    <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell md:w-2/3">{{ $book->author }}</td>
                                 </tr>
                                 <tr class="border-b md:text-lg lg:table-row">
-                                    <th class="block w-1/3 p-4 lg:py-6 text-left md:table-cell">分類：</th>
-                                    <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell">{{ $book->type->name }}</td>
+                                    <th class="block p-4 lg:py-6 text-left md:table-cell md:w-1/3">分類：</th>
+                                    <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell md:w-2/3">{{ $book->type->name }}</td>
                                 </tr>
                                 <tr class="border-b md:text-lg lg:table-row">
-                                    <th class="block w-1/3 p-4 lg:py-6 text-left md:table-cell">持ち主：</th>
-                                    <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell">{{ $book->user->name }}</td>
+                                    <th class="block p-4 lg:py-6 text-left md:table-cell md:w-1/3">持ち主：</th>
+                                    <td class="block w-2/3 px-4 lg:pl-0 pb-4 md:py-6 lg:table-cell md:w-2/3">{{ $book->user->name }}</td>
                                 </tr>
                             </table>
 
@@ -155,7 +155,7 @@
 
             <!-- コメント一覧 -->
             <div class="bg-white flex justify-center rounded p-4">
-                <div class="w-[80%] px-4 py-6 my-6">
+                <div class="w-[90%] lg:w-[80%] px-4 py-6 my-6">
                     @forelse ($book->comments as $comment)
                         <table
                             class="border-slate-300 container mb-4 w-full border-collapse border">

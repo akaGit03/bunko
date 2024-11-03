@@ -5,14 +5,14 @@
 
     <!-- ユーザーの蔵書一覧 -->
     <div class="py-12 text-gray-700">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <h2 class="py-4 pl-6 text-2xl font-semibold">
+        <div class="mx-auto max-w-7xl px-4 md:px-8">
+            <h2 class="py-4 px-8 lg:px-6 text-xl sm:text-2xl font-semibold">
                 全 {{ count($books) }} 点
             </h2>
 
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+            <div class="overflow-auto bg-white shadow-sm rounded">
                 <div class="px-4 py-6">
-                    <table class="container w-full">
+                    <table class="container w-full whitespace-nowrap md:whitespace-normal">
                         <thead>
                             <tr class="md:text-lg">
                                 <th class="w-2/7 p-4 text-left">タイトル</th>
@@ -58,7 +58,7 @@
                                                 @csrf
                                                 <button
                                                     type="submit"
-                                                    class="rounded bg-slate-500 px-4 py-2 font-semibold text-white shadow-sm hover:bg-slate-600">
+                                                    class="rounded bg-slate-500 px-4 py-2 font-semibold text-white shadow-sm hover:bg-slate-600  whitespace-nowrap">
                                                     編集
                                                 </button>
                                             </form>
@@ -77,7 +77,7 @@
                                                 <button
                                                     type="submit"
                                                     onclick="event.stopPropagation()"
-                                                    class="rounded bg-red-500 px-4 py-2 font-semibold text-white shadow-sm hover:bg-red-700">
+                                                    class="rounded bg-red-500 px-4 py-2 font-semibold text-white shadow-sm hover:bg-red-700  whitespace-nowrap">
                                                     削除
                                                 </button>
                                             </form>

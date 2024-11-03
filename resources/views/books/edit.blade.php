@@ -5,7 +5,7 @@
 
     <!-- 本の登録情報の編集 -->
     <div class="py-12 text-gray-600">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-4 md:px-8">
             <!--
             <div class="flex justify-center mb-10">
                 <button type="submit" class="bg-gray-400 font-semibold text-white py-2 px-4 rounded hover:bg-gray-500">
@@ -15,12 +15,12 @@
             -->
 
             <h2
-                class="pb-8 pt-4 text-center text-2xl font-semibold md:text-4xl">
+                class="pb-8 pt-0 md:pt-2 text-center text-2xl font-semibold md:text-3xl">
                 編集
             </h2>
 
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="flex justify-center py-10">
+            <div class="overflow-hidden bg-white shadow-sm rounded">
+                <div class="flex justify-center py-10 px-4">
                     <form
                         class="w-full max-w-md md:max-w-xl"
                         action="{{ route('books.update', $book) }}"
@@ -33,7 +33,7 @@
                         <div class="flex justify-center">
                             <button
                                 type="submit"
-                                class="focus:shadow-outline rounded bg-teal-500 px-4 py-2 text-xl font-bold text-white shadow-sm hover:bg-teal-600 focus:outline-none"
+                                class="w-1/5 focus:shadow-outline rounded bg-teal-500 px-4 py-2 text-xl font-bold text-white shadow-sm hover:bg-teal-600 focus:outline-none whitespace-nowrap"
                                 type="button">
                                 更新
                             </button>

@@ -4,7 +4,7 @@
         <!-- 検索窓 -->
         <div class="mb-4 w-full lg:w-1/4">
             <form
-                class="mb-4 rounded bg-white p-4 shadow"
+                class="mb-4 p-4 sm:p-8 lg:p-4 rounded bg-white shadow"
                 action="{{ route('books.search') }}"
                 method="get">
                 <!-- <div class="mb-2 text-lg font-semibold text-center">本棚検索</div> -->
@@ -77,10 +77,10 @@
                 </dl>
 
                 <!-- 検索ボタン -->
-                <div class="mt-6 flex justify-center">
+                <div class="mt-6 mb-2 sm:mb-0 flex justify-center">
                     <button
                         type="submit"
-                        class="flex w-2/5 items-center justify-center bg-pink-400 py-2 pr-2 text-lg text-white shadow-sm hover:bg-pink-500">
+                        class="flex w-1/3 lg:w-2/5 items-center justify-center bg-pink-400 py-2 pr-2 text-lg text-white shadow-sm hover:bg-pink-500">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="22"
@@ -106,18 +106,18 @@
             <!-- 検索結果数 -->
             <div
                 class="mb-4 flex items-center justify-between rounded bg-white p-4">
-                <div>検索結果：{{ $count ?? $books->total() }}件</div>
+                <div>検索結果：{{ $count ?? $books->total() }} 件</div>
             </div>
 
             <!-- ページネーション -->
             <!-- ページネーションのCSS管理: resources/views/vendor/pagination/tailwind.blade.php -->
-            <div class="mb-2 mt-4">
+            <div class="hidden lg:block mb-2 mt-4">
                 {{ $books->links("pagination::tailwind") }}
             </div>
-
+            
             <!-- 検索結果の一覧 -->
             <div class="overflow-auto">
-                <table class="w-full table-auto rounded-md bg-white">
+                <table class="w-full rounded-md bg-white whitespace-nowrap md:whitespace-normal">
                     <thead class="whitespace-nowrap border-b-2 border-pink-300">
                         <tr>
                             <th class="w-1/8 px-4 py-4 text-center">在架</th>
@@ -155,7 +155,7 @@
 
             <!-- ページネーション -->
             <!-- ページネーションのCSS管理: resources/views/vendor/pagination/tailwind.blade.php -->
-            <div class="mb-4 mt-2">
+            <div class="my-4 lg:mt-2">
                 {{ $books->links("pagination::tailwind") }}
             </div>
         </div>
