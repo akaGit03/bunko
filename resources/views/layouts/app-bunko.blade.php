@@ -34,7 +34,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
-    <body class="font-body antialiased">
+    <body class="font-body antialiased text-gray-700">
         <!-- ヘッダー -->
         <header class="bg-white">
             <div
@@ -43,9 +43,9 @@
                     {{ config("app.name") }}
                 </a>
                 <div
-                    class="flex flex-col lg:flex-row lg:items-center lg:justify-end">
-                    <span class="text-teal-500 mr-2 sm:text-lg">
-                        ようこそ {{ Auth::user()->name ?? "ゲスト" }} さん
+                    class="flex flex-col lg:flex-row lg:items-center lg:justify-end pb-2 lg:pb-0">
+                    <span class="text-teal-500 mr-2 text-lg">
+                        <span class="hidden md:block lg:inline">ようこそ </span>{{ Auth::user()->name ?? "ゲスト" }} さん
                     </span>
 
                     <!-- ログインの有無により配置するボタンを変更-->
@@ -58,7 +58,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-slate-400 text-white hover:bg-slate-500 px-4 py-2 shadow-sm">
+                                class="bg-slate-400 text-white hover:bg-slate-500 px-4 py-2 shadow-sm whitespace-nowrap">
                                 マイページ
                             </button>
                         </form>
@@ -72,7 +72,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 shadow-sm">
+                                class="bg-orange-500 text-white hover:bg-orange-600 px-4 py-2 shadow-sm whitespace-nowrap">
                                 ログアウト
                             </button>
                         </form>
@@ -85,7 +85,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-pink-400 text-white hover:bg-pink-500 px-4 py-2 shadow-sm">
+                                class="bg-pink-400 text-white hover:bg-pink-500 px-4 py-2 shadow-sm whitespace-nowrap">
                                 ログイン
                             </button>
                         </form>
@@ -99,7 +99,7 @@
                             @csrf
                             <button
                                 type="submit"
-                                class="bg-teal-500 text-white hover:bg-teal-600 px-4 py-2 shadow-sm">
+                                class="bg-teal-500 text-white hover:bg-teal-600 px-4 py-2 shadow-sm whitespace-nowrap">
                                 会員登録
                             </button>
                         </form>
@@ -123,7 +123,7 @@
             @endif
 
             <!-- コンテンツ -->
-            <div class="container mx-auto py-8">
+            <div class="container mx-auto py-8 px-4">
                 @yield("content")
             </div>
         </main>

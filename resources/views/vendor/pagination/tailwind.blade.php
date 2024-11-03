@@ -2,7 +2,8 @@
     <nav
         role="navigation"
         aria-label="{{ __("Pagination Navigation") }}"
-        class="flex items-center justify-between">
+        class="flex justify-center items-center lg:justify-between">
+        <!-- デフォルト使用：不要だが念のためコメントアウト
         <div class="flex flex-1 justify-between sm:hidden">
             @if ($paginator->onFirstPage())
                 <span
@@ -30,33 +31,24 @@
                 </span>
             @endif
         </div>
+        -->
 
         <div
-            class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-            <!--
+            class="flex items-center justify-between">
+            <!-- デフォルト使用：不要だが念のためコメントアウト
             <div>
                 <p class="text-gray-700 leading-5 dark:text-gray-400">
                     {!! __("Showing") !!}
                     @if ($paginator->firstItem())
-
-
-
-
-
                         <span class="font-medium">{{ $paginator->firstItem() }}</span>
                         {!! __("to") !!}
                         <span class="font-medium">{{ $paginator->lastItem() }}</span>
-@else
-
-
-
-
-
+                    @else
                         {{ $paginator->count() }}
-@endif
-                    {!! __("of") !!}
-                    <span class="font-medium">{{ $paginator->total() }}</span>
-                    {!! __("results") !!}
+                    @endif
+                        {!! __("of") !!}
+                        <span class="font-medium">{{ $paginator->total() }}</span>
+                        {!! __("results") !!}
                 </p>
             </div>
             -->
