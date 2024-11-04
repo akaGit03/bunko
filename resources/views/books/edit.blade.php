@@ -33,7 +33,7 @@
                         <div class="flex justify-center">
                             <button
                                 type="submit"
-                                class="w-1/5 focus:shadow-outline rounded bg-teal-500 px-4 py-2 text-xl font-bold text-white shadow-sm hover:bg-teal-600 focus:outline-none whitespace-nowrap"
+                                class="w-1/5 focus:shadow-outline rounded bg-teal-500 px-2 sm:px-4 py-2 text-xl font-bold text-white shadow-sm hover:bg-teal-600 focus:outline-none whitespace-nowrap"
                                 type="button">
                                 更新
                             </button>
