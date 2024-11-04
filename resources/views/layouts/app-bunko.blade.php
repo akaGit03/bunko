@@ -112,11 +112,11 @@
         <main class="bg-stone-100">
             <!-- アラート表示 -->
             @if (session("success"))
-                <div class="bg-custom-yellow text-gray-600 mb-4 py-6 text-center text-xl shadow-sm">
+                <div class="bg-custom-yellow text-gray-600 mb-4 py-4 sm:py-6 text-center text-lg sm:text-xl shadow-sm">
                     {{ session("success") }}
                 </div>
                 @elseif ($errors->any())
-                <div class="bg-orange-300 text-orange-700 mb-4 py-6 text-center text-xl shadow-sm">
+                <div class="bg-orange-300 text-orange-700 mb-4 py-4 sm:py-6 text-center text-lg sm:text-xl shadow-sm">
                     <p>【！！】コメントエラーです。コメント入力欄をご確認ください。</p>
                 </div>
                 </ul>

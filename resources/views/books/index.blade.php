@@ -80,7 +80,7 @@
                 <div class="mt-6 mb-2 sm:mb-0 flex justify-center">
                     <button
                         type="submit"
-                        class="flex w-1/3 lg:w-2/5 items-center justify-center bg-pink-400 py-2 pr-2 text-lg text-white shadow-sm hover:bg-pink-500">
+                        class="flex w-[30%] lg:w-[40%] items-center justify-center bg-pink-400 py-2 pr-2 text-lg text-white shadow-sm hover:bg-pink-500">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="22"

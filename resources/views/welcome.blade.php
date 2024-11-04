@@ -35,7 +35,7 @@
         <div
             class="flex h-screen items-center justify-center bg-stone-100 text-black/50 dark:bg-black dark:text-white/50">
             <main class="text-center">
-                <h1 class="mb-8 p-4 font-title text-7xl sm:text-8xl text-teal-400">
+                <h1 class="mb-4 md:mb-8 p-4 font-title text-7xl sm:text-8xl text-teal-400">
                     川本文庫
                 </h1>
 
@@ -44,7 +44,7 @@
                     <!-- 「本棚検索」ボタン（ログインの有無に関係なく配置 -->
                     <a
                         href="{{ route('books.index') }}"
-                        class="mb-4 md:mb-6 w-1/2 bg-yellow-400 px-4 md:px-6 py-4 text-lg text-slate-700 shadow hover:bg-yellow-500 md:w-3/5 md:text-xl">
+                        class="mb-4 w-1/2 md:w-3/5 bg-yellow-400 px-4 md:px-6 py-3 md:py-4 sm:text-lg md:text-xl text-slate-700 shadow hover:bg-yellow-500">
                         本棚検索
                     </a>
 
@@ -53,14 +53,14 @@
                             <!-- 「マイページ」ボタン -->
                             <a
                                 href="{{ url('/dashboard') }}"
-                                class="mb-4 md:mb-6 w-1/2 bg-slate-400 px-4 md:px-6 py-4 text-lg text-white shadow ring-1 ring-transparent transition hover:bg-slate-500 focus:outline-none focus-visible:ring-[#FF2D20] md:w-3/5 md:text-xl dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="mb-4 w-1/2 md:w-3/5 bg-slate-400 px-4 md:px-6 py-3 md:py-4 sm:text-lg md:text-xl text-white shadow ring-1 ring-transparent transition hover:bg-slate-500 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                 マイページ
                             </a>
                         @else
                             <!-- 「ログイン」ボタン -->
                             <a
                                 href="{{ route('login') }}"
-                                class="mb-4 md:mb-6 w-1/2 bg-pink-400 px-4 md:px-6 py-4 text-lg text-white shadow ring-1 ring-transparent transition hover:bg-pink-500 focus:outline-none focus-visible:ring-[#FF2D20] md:w-3/5 md:text-xl dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                class="mb-4 w-1/2 md:w-3/5 bg-pink-400 px-4 md:px-6 py-3 md:py-4 sm:text-lg md:text-xl text-white shadow ring-1 ring-transparent transition hover:bg-pink-500 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                 ログイン
                             </a>
 
@@ -69,7 +69,7 @@
                                 <a
                                     onclick="alert('デモストレーションのため、現在この機能は利用できません。\n「本棚検索」はログインなしで利用できます。\n「ログイン」はゲストユーザーで可能です。\n\nゲストユーザーでログイン↓\nメールアドレス：guest@exmaple.com\nパスワード：guest')"
                                     href=""
-                                    class="mb-4 md:mb-6 w-1/2 bg-teal-500 px-4 md:px-6 py-4 text-lg text-white shadow ring-1 ring-transparent transition hover:bg-teal-600 focus:outline-none focus-visible:ring-[#FF2D20] md:w-3/5 md:text-xl dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                    class="mb-4 w-1/2 md:w-3/5 bg-teal-500 px-4 md:px-6 py-3 md:py-4 text-lg md:text-xl text-white shadow ring-1 ring-transparent transition hover:bg-teal-600 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                                     会員登録
                                 </a>
                             @endif

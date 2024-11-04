@@ -17,8 +17,8 @@
                 図書情報
             </h2>
 
-            <div class="bg-white mb-4 flex justify-center rounded p-4">
-                <div class="w-[90%] lg:w-[80%] px-4 py-6">
+            <div class="bg-white mb-4 flex justify-center rounded p-0 md:p-4">
+                <div class="w-[90%] lg:w-[80%] px-0 py-6">
                     <!-- レスポンシブのためのラッパー（lgを境にレコードの並び方が変化） -->
                     <div class="flex flex-col lg:flex-row items-center">
                         <!-- 書影 -->
@@ -69,14 +69,14 @@
                             @if ($book->isLent()) <!-- ユーザー自身が借りている場合 -->
                                 <form action="{{ route('books.returnBook', $book) }}" method="POST" onsubmit="return confirm('この本を返却しますか？')">
                                     @csrf
-                                    <button class="bg-teal-500 text-white hover:bg-teal-600 rounded px-4 py-2 text-xl font-semibold shadow-sm" type="submit">
+                                    <button class="bg-teal-500 text-white hover:bg-teal-600 rounded px-4 py-2 text-lg sm:text-xl font-semibold shadow-sm" type="submit">
                                         返却する
                                     </button>
                                 </form>
                             @elseif (! $book->status) <!-- 本が在架の場合 -->
                                 <form action="{{ route('books.lendBook', $book) }}" method="POST" onsubmit="return confirm('この本を借りますか？')">
                                     @csrf
-                                    <button class="bg-pink-400 text-white hover:bg-pink-500 rounded px-4 py-2 text-xl font-semibold shadow-sm" type="submit">
+                                    <button class="bg-pink-400 text-white hover:bg-pink-500 rounded px-4 py-2 text-lg sm:text-xl font-semibold shadow-sm" type="submit">
                                         借りる
                                     </button>
                                 </form>
@@ -92,7 +92,7 @@
 
     <!-- コメント欄 -->
     <div class="text-gray-700 py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl py-8 sm:px-6 lg:px-8">
             <h2
                 class="pb-8 pt-4 text-center text-3xl font-semibold md:text-4xl">
                 みんなのコメント
@@ -103,7 +103,7 @@
                 <!-- コメントフォームを表示するボタン -->
                 <div class="{{ $errors->any() ? 'hidden' : '' }} flex justify-center">
                     <button
-                        class="bg-teal-500 text-white hover:bg-teal-600 mb-6 rounded px-4 py-2 font-semibold shadow-sm"
+                        class="bg-teal-500 text-white hover:bg-teal-600 mb-6 rounded px-4 py-2 text-sm sm:text-base font-semibold shadow-sm"
                         id="toggleButton">
                         コメントする
                     </button>
@@ -143,7 +143,7 @@
                                 <div
                                     class="form-group mt-4 flex justify-center">
                                     <button
-                                        class="bg-teal-500 text-white hover:bg-teal-600 ml-2 rounded px-4 py-2 font-semibold shadow-sm">
+                                        class="bg-teal-500 text-white hover:bg-teal-600 ml-2 rounded px-4 py-2 text-lg sm:text-xl font-semibold shadow-sm">
                                         投稿する
                                     </button>
                                 </div>
@@ -154,8 +154,8 @@
             @endauth
 
             <!-- コメント一覧 -->
-            <div class="bg-white flex justify-center rounded p-4">
-                <div class="w-[90%] lg:w-[80%] px-4 py-6 my-6">
+            <div class="bg-white flex justify-center rounded p-0 md:p-4">
+                <div class="w-[90%] lg:w-[80%] px-4 py-6">
                     @forelse ($book->comments as $comment)
                         <table
                             class="border-slate-300 container mb-4 w-full border-collapse border">
